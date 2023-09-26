@@ -1,0 +1,60 @@
+@import "src/assets/variables.scss";
+@import "src/mixins/mixins.scss";
+
+footer {
+    width: 100%;
+    padding: 24px 0px 58px 0px;
+    background: #F9F4E2;
+
+    .layout-container {
+        @include layout-page-style;
+        display: flex;
+        gap: 133px;
+
+        .menu-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+
+            .navigation-list {
+                display: flex;
+                flex-direction: row;
+                gap: 40px;
+
+                .navigarion-item {
+                    .navigation-link {
+                        color: $main-surface;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+
+            .social-list {
+                display: flex;
+                flex-direction: row;
+                gap: 16px;
+                .social-item{
+                    .social-link{
+                        .footer-social{
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+
+            .phone-wrapper{
+                display: flex;
+                align-items: flex-start;
+                flex-direction: row;
+                gap: 8px;
+
+            }
+        }
+    }
+}
