@@ -1,0 +1,28 @@
+<div class="content-wrapper">
+    <img [src]="product.image" alt="product-card-image" class="qwe">
+    <div class="content">
+        <div class="price-wrapper">
+            <div class="price">
+                <p class="with-card">
+                    {{ product.cardPrice | currency: 'RUB':'symbol-narrow' }}
+                </p>
+                <p class="type" >С картой</p>
+            </div>
+            <div class="price">
+                <p class="without-card">
+                    {{ product.commonPrice | currency: 'RUB':'symbol-narrow' }}
+                </p>
+                <p class="type" >Обычная</p>
+            </div>
+        </div>
+        <p class="name">
+           {{ product.title }}
+        </p>
+        <div class="ratings">
+            <app-rating [rating]="product.rating"></app-rating>
+        </div>
+        <button type="button" class="btn">
+            В корзину
+        </button>
+    </div>
+</div>

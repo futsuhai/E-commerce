@@ -1,0 +1,4 @@
+<p>
+    <img *ngFor="let star of stars; let i = index" 
+    [src]="star ? 'assets/rating/star-fill.svg' : 'assets/rating/star-empty.svg'">
+</p>

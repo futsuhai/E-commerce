@@ -1,0 +1,38 @@
+@import "src/assets/variables.scss";
+@import "src/mixins/mixins.scss";
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .content-header {
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            color: $main-surface;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .more {
+            display: flex;
+            gap: 8px;
+            align-items: flex-end;
+            color: $grayscale-hardest;
+        }
+    }
+
+    .content-main{
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+
+        div{
+            height: 349px;
+            width: 272px;
+            background: gray;
+        }
+    }
+}
