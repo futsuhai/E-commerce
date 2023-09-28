@@ -9,12 +9,20 @@ export class Product {
     ){}
 }
 
+export class ProductListData {
+    constructor(
+        public prodListTitle: string,
+        public prodListMore: string
+    ){}
+}
+
 export class ProductService {
     getProduct(): Product[] {
         return products.map(p => new Product(p.id, p.cardPrice, p.commonPrice, p.title,
             p.rating, p.image));
     }
 }
+
 var products = [
     {
         id: 0,

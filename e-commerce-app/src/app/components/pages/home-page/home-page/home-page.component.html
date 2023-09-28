@@ -3,8 +3,24 @@
 
     </div>
     <div class="main-content">
-        <ng-container *ngFor="let item of [1, 2, 3]">
-            <app-product-list></app-product-list>
-          </ng-container>
+        <ng-container *ngFor="let item of prodListsData">
+            <app-product-list [prodListData]="item"></app-product-list>
+        </ng-container>
+        <div class="shops-wrapper">
+            <h2 class="title">
+                Наши магазины
+            </h2>
+            <div class="buttons-row">
+                <button class="location" 
+                [ngClass]="{'active': isActive}" (click)="toggleButton()">п. Щельяюр</button>
+                <button class="location"
+                [ngClass]="{'active': isActive}" (click)="toggleButton()">д. Вертеп</button>
+                <button class="location">с. Краснобор</button>
+                <button class="location">п. Диюр</button>
+            </div>
+            <div class="map">
+
+            </div>
+        </div>
     </div>
 </main>

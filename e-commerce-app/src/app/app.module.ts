@@ -11,6 +11,7 @@ import { ProductListComponent } from './components/layout/product-list/product-l
 import { ProductCardComponent } from './components/layout/product-card/product-card.component';
 import { RatingComponent } from './components/layout/rating/rating.component';
 import { ProductService } from './services/product-service';
+import { RublesPipe } from './components/pipes/rubles.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ProductService } from './services/product-service';
     ProductListComponent,
     ProductCardComponent,
     RatingComponent,
+    RublesPipe,
   ],
   imports: [
     BrowserModule,

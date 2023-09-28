@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProductListData } from 'src/app/services/product-service';
+
 
 @Component({
   selector: 'app-home-page',
@@ -7,4 +9,23 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent {
 
+  isActive = false;
+  prodListsData: ProductListData[] = [
+    {
+      prodListTitle: 'Акции',
+      prodListMore: 'Все акции'
+    },
+    {
+      prodListTitle: 'Новинки',
+      prodListMore: 'Все новинки'
+    },
+    {
+      prodListTitle: 'Покупали раньше',
+      prodListMore: 'Все покупки'
+    },
+  ]
+
+  toggleButton() {
+    this.isActive = !this.isActive;
+  }
 }
