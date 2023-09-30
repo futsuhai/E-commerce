@@ -5,10 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RublesPipe implements PipeTransform {
 
-  transform(value: number): string {
-    if(!value){
-      return value.toString();
-    }else{
+  transform(value: number | undefined): string {
+    if (!value) {
+      return "0 ₽";
+    } else {
       return value.toFixed(2) + ' ₽';
     }
   }

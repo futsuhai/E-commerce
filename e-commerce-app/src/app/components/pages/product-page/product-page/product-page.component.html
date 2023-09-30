@@ -1,0 +1,27 @@
+<div class="main-content-wrapper">
+    <div class="main-content">
+        <h2 class="title">
+            {{ product?.title }}, {{ product?.country }}, {{ product?.weight }}г
+        </h2>
+        <div class="review-title">
+            <p class="article">
+                арт. {{product?.article}}
+            </p>
+            <div class="rating">
+                <app-rating [rating]="product?.rating"></app-rating>
+                <p class="reviews">
+                    {{ product?.reviews }} отзыва
+                </p>
+            </div>
+            <button>
+                <img src="assets/product-page/prod-page-share.svg" alt="product-page-icon-share">
+                Поделиться
+            </button>
+            <button>
+                <img src="assets/product-page/prod-page-heart.svg" alt="product-page-icon-heart">
+                В избранное
+            </button>
+        </div>
+        <app-product-card-detail [product]="product"></app-product-card-detail>
+    </div>
+</div>

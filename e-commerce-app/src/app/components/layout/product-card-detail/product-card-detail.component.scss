@@ -1,0 +1,134 @@
+@import "src/assets/variables.scss";
+
+.product-detail {
+    display: flex;
+    gap: 40px;
+
+    .images-wrapper {
+        display: flex;
+        gap: 16px;
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .left-item {
+                width: 64px;
+                height: 86.4px;
+                object-fit: cover;
+            }
+        }
+
+        .right-column {
+            width: 504px;
+            height: 496px;
+            object-fit: cover;
+        }
+    }
+
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        .title-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .price-wrapper {
+                display: flex;
+                flex-direction: column;
+
+                .price {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .commonPrice {
+                        color: $grayscale-hardest;
+                        font-size: 24px;
+                    }
+
+                    .cardPrice {
+                        color: $main-surface;
+                        font-size: 36px;
+                        font-weight: 700;
+                    }
+                }
+
+                .type {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 12px;
+                    color: $grayscale-light;
+
+                    .withIcon {
+                        display: flex;
+                        gap: 8px;
+                        align-items: center;
+                    }
+                }
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                button {
+                    display: flex;
+                    padding: 8px;
+                    gap: 8px;
+                    font-size: 12px;
+                    align-items: center;
+                    justify-content: center;
+
+                    &.basket {
+                        padding: 16px;
+                        width: 376px;
+                        background: $orange-color;
+                        color: $white-color;
+                        font-size: 24px;
+                    }
+
+                    &.bonus {
+                        color: $green-color;
+                    }
+
+                    &.discount {
+                        color: $grayscale-hardest;
+                    }
+                }
+            }
+        }
+
+        .product-attributes {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .product-attributes-item {
+                display: flex;
+                gap: 40px;
+                padding: 4px 8px;
+                color: $main-surface;
+                font-size: 12px;
+
+                &.gray {
+                    background: $grayscale-lightest;
+                }
+
+                .attribute {
+                    width: 160px;
+                }
+
+                .attribute-item {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

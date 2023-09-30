@@ -10,9 +10,10 @@ import { Product, ProductListData, ProductService } from 'src/app/services/produ
 export class ProductListComponent {
 
   products: Product[] = [];
-  @Input() prodListData: ProductListData | undefined;
+  @Input() prodListTitle: string = '';
+  @Input() prodListMore: string = '';
 
-  constructor(private productService: ProductService){
+  constructor(private productService: ProductService) {
     this.products = this.productService.getProduct();
   }
 }

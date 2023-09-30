@@ -10,20 +10,6 @@ import { ProductListData } from 'src/app/services/product-service';
 export class HomePageComponent {
 
   isActive = false;
-  prodListsData: ProductListData[] = [
-    {
-      prodListTitle: 'Акции',
-      prodListMore: 'Все акции'
-    },
-    {
-      prodListTitle: 'Новинки',
-      prodListMore: 'Все новинки'
-    },
-    {
-      prodListTitle: 'Покупали раньше',
-      prodListMore: 'Все покупки'
-    },
-  ]
 
   toggleButton() {
     this.isActive = !this.isActive;

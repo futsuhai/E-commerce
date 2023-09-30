@@ -5,6 +5,7 @@ footer {
     width: 100%;
     padding: 24px 0px 58px 0px;
     background: $main-bg;
+    background-image: url('/assets/footer/footer-background.svg');
 
     .layout-container {
         @include layout-page-style;
@@ -39,21 +40,21 @@ footer {
                 display: flex;
                 flex-direction: row;
                 gap: 16px;
-                .social-item{
-                    .social-link{
-                        .footer-social{
+
+                .social-item {
+                    .social-link {
+                        .footer-social {
                             vertical-align: middle;
                         }
                     }
                 }
             }
 
-            .phone-wrapper{
+            .phone-wrapper {
                 display: flex;
                 align-items: flex-start;
                 flex-direction: row;
                 gap: 8px;
-
             }
         }
     }

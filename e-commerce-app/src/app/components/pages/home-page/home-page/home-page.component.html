@@ -1,20 +1,50 @@
 <main>
     <div class="top-banner">
-
+        <div class="image-wrapper">
+            <img src="assets/home-page/fruit.svg" class="banner-image">
+            <h2 class="banner-title">
+                Доставка бесплатно от 1000 ₽
+            </h2>
+        </div>
     </div>
     <div class="main-content">
-        <ng-container *ngFor="let item of prodListsData">
-            <app-product-list [prodListData]="item"></app-product-list>
-        </ng-container>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h2 class="title">Акции</h2>
+                <button class="more">
+                    Все акции
+                    <img src="assets/common/arrow-right.svg" alt="arrow-right">
+                </button>
+            </div>
+            <app-product-list></app-product-list>
+        </div>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h2 class="title">Новинки</h2>
+                <button class="more">
+                    Все новинки
+                    <img src="assets/common/arrow-right.svg" alt="arrow-right">
+                </button>
+            </div>
+            <app-product-list></app-product-list>
+        </div>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h2 class="title">Покупали ранее</h2>
+                <button class="more">
+                    Все покупки
+                    <img src="assets/common/arrow-right.svg" alt="arrow-right">
+                </button>
+            </div>
+            <app-product-list></app-product-list>
+        </div>
         <div class="shops-wrapper">
             <h2 class="title">
                 Наши магазины
             </h2>
             <div class="buttons-row">
-                <button class="location" 
-                [ngClass]="{'active': isActive}" (click)="toggleButton()">п. Щельяюр</button>
-                <button class="location"
-                [ngClass]="{'active': isActive}" (click)="toggleButton()">д. Вертеп</button>
+                <button class="location" [ngClass]="{'active': isActive}" (click)="toggleButton()">п. Щельяюр</button>
+                <button class="location" [ngClass]="{'active': isActive}" (click)="toggleButton()">д. Вертеп</button>
                 <button class="location">с. Краснобор</button>
                 <button class="location">п. Диюр</button>
             </div>

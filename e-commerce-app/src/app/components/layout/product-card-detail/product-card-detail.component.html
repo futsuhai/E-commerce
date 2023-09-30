@@ -1,0 +1,57 @@
+<div class="product-detail">
+    <div class="images-wrapper">
+        <div class="left-column">
+            <img [src]="product?.image" alt="" class="left-item">
+            <img [src]="product?.image" alt="" class="left-item">
+            <img [src]="product?.image" alt="" class="left-item">
+            <img [src]="product?.image" alt="" class="left-item">
+            <img [src]="product?.image" alt="" class="left-item">
+        </div>
+        <img [src]="product?.image" alt="" class="right-column">
+    </div>
+    <div class="product-info">
+        <div class="title-wrapper">
+            <div class="price-wrapper">
+                <div class="price">
+                    <p class="commonPrice">{{ product?.commonPrice | rubles }}</p>
+                    <p class="cardPrice">{{ product?.cardPrice | rubles }}</p>
+                </div>
+                <div class="type">
+                    <p>Обычная цена</p>
+                    <p class="withIcon">
+                        С картой Северяночки
+                        <img src="assets/product-page/prod-page-info.svg" alt="">
+                    </p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="basket bnt">
+                    <img src="assets/product-page/prod-page-basket.svg" alt="product-page-icon-basket">
+                    В корзину
+                </button>
+                <button class="bonus bnt">
+                    <img src="assets/product-page/prod-page-atom.svg" alt="product-page-icon-atom">
+                    Вы получете {{ bonus }} бонусов
+                </button>
+                <button class="discount bnt">
+                    <img src="assets/product-page/prod-page-bell.svg" alt="product-page-icon-bell">
+                    Уведомить о снижении цены
+                </button>
+            </div>
+        </div>
+        <div class="product-attributes">
+            <div class="product-attributes-item gray">
+                <p class="attribute">Бренд</p>
+                <p class="attribute-item">{{ product?.brand }}</p>
+            </div>
+            <div class="product-attributes-item">
+                <p class="attribute">Страна производителя</p>
+                <p class="attribute-item">{{ product?.country }}</p>
+            </div>
+            <div class="product-attributes-item gray">
+                <p class="attribute">Упаковка</p>
+                <p class="attribute-item">{{ product?.weight }} г</p>
+            </div>
+        </div>
+    </div>
+</div>

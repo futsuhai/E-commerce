@@ -12,6 +12,8 @@ import { ProductCardComponent } from './components/layout/product-card/product-c
 import { RatingComponent } from './components/layout/rating/rating.component';
 import { ProductService } from './services/product-service';
 import { RublesPipe } from './components/pipes/rubles.pipe';
+import { ProductPageComponent } from './components/pages/product-page/product-page/product-page.component';
+import { ProductCardDetailComponent } from './components/layout/product-card-detail/product-card-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { RublesPipe } from './components/pipes/rubles.pipe';
     ProductCardComponent,
     RatingComponent,
     RublesPipe,
+    ProductPageComponent,
+    ProductCardDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,4 @@
-<div class="content-wrapper">
-    <div class="content-header">
-        <h2>{{ prodListData?.prodListTitle }}</h2>
-        <button class="more">
-            {{ prodListData?.prodListMore }}
-            <img src="assets/common/arrow-right.svg" alt="arrow-right">
-        </button>
-    </div>
-    <div class="content-main">
-        <div *ngFor="let product of products">
-            <app-product-card [product]="product">
-
-            </app-product-card>
-        </div>
-    </div>
+<div class="content-main">
+    <app-product-card *ngFor="let product of products" [product]="product">
+    </app-product-card>
 </div>
