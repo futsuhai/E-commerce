@@ -1,0 +1,117 @@
+@import "src/assets/variables.scss";
+@import "src/mixins/mixins.scss";
+
+.bg-wrapper {
+    background: $main-bg;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+
+    .auth-wrapper {
+        @include layout-page-style;
+        display: flex;
+        justify-content: space-around;
+        padding: 40px 0px;
+
+        .company-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 560px;
+
+            .company-title {
+                color: $main-surface;
+                font-size: 64px;
+                font-weight: 700;
+            }
+
+            .company-desc {
+                color: $orange-color;
+                font-size: 24px;
+                font-weight: 700;
+            }
+        }
+
+        .auth-form {
+            width: 30%;
+            height: 400px;
+            background: $white-color;
+            border: 1px solid $green-color;
+            border-radius: 8px;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+
+            .form-title {
+                display: flex;
+                gap: 8px;
+
+                .btn {
+                    background-color: $green-color;
+                    border: 1px solid $green-color;
+                    font-family: 'Rubik';
+                    font-size: 20px;
+
+                    &:hover {
+                        background: $orange-color;
+                        border: 1px solid $orange-color;
+                    }
+                }
+            }
+
+            .base-form {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+                color: $main-surface;
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    font-size: 18px;
+                    font-family: 'Rubik';
+
+                    .data-input {
+                        padding-left: 8px;
+                        border: 1px solid $green-color;
+                        border-radius: 4px;
+                        font-family: 'Rubik';
+                    }
+
+                    .pass-input {
+                        position: relative;
+
+                        .toggle-pass {
+                            position: absolute;
+                            right: 6px;
+                            top: 6px;
+                        }
+                    }
+                }
+
+                .btn {
+                    background-color: $green-color;
+                    border: 1px solid $green-color;
+                    display: flex;
+                    padding: 4px 32px;
+                    font-size: 20px;
+                    font-family: 'Rubik';
+
+                    &:hover {
+                        background: $orange-color;
+                        border: 1px solid $orange-color;
+                    }
+                }
+
+                .btn-light {
+                    font-family: 'Rubik';
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

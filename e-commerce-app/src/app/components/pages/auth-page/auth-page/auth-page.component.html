@@ -1,1 +1,58 @@
-<p>auth-page works!</p>
+<div class="bg-wrapper">
+    <div class="auth-wrapper">
+        <div class="company-wrapper">
+            <h1 class="company-title">
+                О компании
+            </h1>
+            <p class="company-desc">
+                Основная миссия компании - максимальное качество товаров и услуг по доступной цене. Мы непрерывно
+                развиваемся и работаем над совершенствованием сервиса, заботимся о наших клиентах,
+                стремимся к лучшему будущему.
+            </p>
+        </div>
+        <div class="auth-form">
+            <form class="base-form" *ngIf="switchForm">
+                <img src="assets/header/header-logo.svg" alt="auth-logo">
+                <div class="form-group">
+                    <label for="login">Логин:</label>
+                    <input class="data-input" type="text" id="login" name="login">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <div class="pass-input">
+                        <input class="data-input" type="password" id="password" name="password">
+                        <img src="assets/common/eye-fill.svg" alt="hide-password" class="toggle-pass"
+                            (click)="hidePassword('password')">
+                    </div>
+                </div>
+                <button type="sumbit" class="btn btn-success">Войти</button>
+                <button type="button" class="btn-light" (click)="showRegistrationForm()">Регистрация</button>
+            </form>
+            <form class="base-form" *ngIf="!switchForm">
+                <img src="assets/header/header-logo.svg" alt="auth-logo">
+                <div class="form-group">
+                    <label for="login">Логин:</label>
+                    <input class="data-input" type="text" id="login" name="login">
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <div class="pass-input">
+                        <input class="data-input" type="password" id="password" name="password">
+                        <img src="assets/common/eye-fill.svg" alt="hide-password" class="toggle-pass"
+                            (click)="hidePassword('password')">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Повторите пароль:</label>
+                    <div class="pass-input">
+                        <input class="data-input" type="password" id="password-repeat" name="password-repeat">
+                        <img src="assets/common/eye-fill.svg" alt="hide-password" class="toggle-pass"
+                            (click)="hidePassword('password-repeat')">
+                    </div>
+                </div>
+                <button type="sumbit" class="btn btn-success">Регистрация</button>
+                <button type="button" class="btn-light" (click)="showLoginForm()">Авторизация</button>
+            </form>
+        </div>
+    </div>
+</div>

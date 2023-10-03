@@ -43,13 +43,13 @@
                 Наши магазины
             </h2>
             <div class="buttons-row">
-                <button class="location" [ngClass]="{'active': isActive}" (click)="toggleButton()">п. Щельяюр</button>
-                <button class="location" [ngClass]="{'active': isActive}" (click)="toggleButton()">д. Вертеп</button>
-                <button class="location">с. Краснобор</button>
-                <button class="location">п. Диюр</button>
+                <button *ngFor="let data of mapData; let i = index" class="location"
+                    [class.active]="i === selectedMapIndex" (click)="selectMap(i)">
+                    {{ data.location }}
+                </button>
             </div>
-            <div class="map">
-
+            <div class="map-wrapper">
+                <iframe class="map" [src]="mapData[selectedMapIndex].link"></iframe>
             </div>
         </div>
     </div>

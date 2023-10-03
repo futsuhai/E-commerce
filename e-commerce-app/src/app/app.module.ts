@@ -10,10 +10,13 @@ import { AppRoutingModule } from './components/routing/app-routing.module';
 import { ProductListComponent } from './components/layout/product-list/product-list.component';
 import { ProductCardComponent } from './components/layout/product-card/product-card.component';
 import { RatingComponent } from './components/layout/rating/rating.component';
-import { ProductService } from './services/product-service';
+import { ProductService } from './services/product.service';
 import { RublesPipe } from './components/pipes/rubles.pipe';
 import { ProductPageComponent } from './components/pages/product-page/product-page/product-page.component';
 import { ProductCardDetailComponent } from './components/layout/product-card-detail/product-card-detail.component';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,9 +34,11 @@ import { ProductCardDetailComponent } from './components/layout/product-card-det
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

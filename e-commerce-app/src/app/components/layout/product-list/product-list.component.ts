@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Product, ProductListData, ProductService } from 'src/app/services/product-service';
+import { ProductService } from 'src/app/services/product.service';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-list',
@@ -14,6 +15,9 @@ export class ProductListComponent {
   @Input() prodListMore: string = '';
 
   constructor(private productService: ProductService) {
-    this.products = this.productService.getProduct();
+    //this.products = this.productService.getProductsStab();
+    this.productService.getProducts().subscribe(data => {
+      this.products = data;
+    });
   }
 }

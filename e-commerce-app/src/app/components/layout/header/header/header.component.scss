@@ -4,6 +4,7 @@
 header {
     width: 100%;
     padding: 1rem 0rem;
+    margin-bottom: 4px;
     box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.10);
 
     nav {
@@ -74,6 +75,17 @@ header {
                     height: 40px;
                     border-radius: 40px;
                 }
+            }
+
+            .btn {
+                display: flex;
+                justify-content: center;
+                padding: 8px;
+                width: 140px;
+                border-radius: 4px;
+                background: $green-color;
+                --bs-btn-border-color: none;
+                font-family: 'Rubik';
             }
         }
     }
