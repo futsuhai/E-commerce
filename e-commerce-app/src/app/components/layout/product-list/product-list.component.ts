@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { Product } from '../../models/product.model';
 
@@ -11,8 +11,6 @@ import { Product } from '../../models/product.model';
 export class ProductListComponent {
 
   products: Product[] = [];
-  @Input() prodListTitle: string = '';
-  @Input() prodListMore: string = '';
 
   constructor(private productService: ProductService) {
     //this.products = this.productService.getProductsStab();

@@ -1,5 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "src/mixins/mixins.scss";
+@import "src/assets/variables.scss";
 
 /* Reset and base styles  */
 * {
@@ -130,8 +131,9 @@ html {
 }
 
 // layout
+body {
 
-body {}
+}
 
 /* rubik-regular - cyrillic_latin */
 @font-face {

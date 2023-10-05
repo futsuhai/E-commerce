@@ -1,0 +1,64 @@
+@import "src/assets/variables.scss";
+
+.product-wrapper {
+    background-color: $white-color;
+    display: flex;
+    gap: 16px;
+    padding: 0px 8px;
+    height: 72px; // delete?
+
+    .product-info-wrapper {
+        display: flex;
+        gap: 8px;
+        width: 625px; // delete
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px 0px;
+            color: $main-surface;
+
+            .price {
+                font-size: 12px;
+                color: $grayscale-hardest;
+
+                .bold {
+                    margin-right: 8px;
+                    color: $main-surface;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .price-control {
+        display: flex;
+        gap: 16px;
+        padding: 10px 0px;
+
+        .counter-wrapper {
+            display: flex;
+            gap: 8px;
+            background: $green-color;
+            color: $white-color;
+            padding: 8px;
+            height: 40px; //delete
+
+            .counter {
+                justify-content: center;
+                display: flex;
+                width: 18px;
+            }
+        }
+
+        .full-price {
+            display: flex;
+            justify-content: flex-end;
+            width: 95px;
+            padding-right: 10px;
+            font-weight: 700;
+            color: $main-surface;
+        }
+    }
+}

@@ -6,7 +6,6 @@ main {
 
     .top-banner {
         background: $white-color;
-        height: 200px;
         background-image: url('/assets/home-page/main-pattern.svg');
 
         .image-wrapper {
@@ -81,7 +80,8 @@ main {
                     background-color: $grayscale-lightest;
                     color: $grayscale-hardest;
 
-                    &.active, &:hover {
+                    &.active,
+                    &:hover {
                         background-color: $green-color;
                         color: $white-color;
                     }

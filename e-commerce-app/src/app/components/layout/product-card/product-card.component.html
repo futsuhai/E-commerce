@@ -17,7 +17,7 @@
         </div>
         <p class="name">
             <a [routerLink]="['product', product.id]" class="prod-detail-link">
-                {{ product.title }}, {{ product.weight }}г, {{ product.country }}
+                {{ product.title }}, {{ product.weight | grams}}, {{ product.country }}
             </a>
         </p>
         <app-rating [rating]="product.rating"></app-rating>

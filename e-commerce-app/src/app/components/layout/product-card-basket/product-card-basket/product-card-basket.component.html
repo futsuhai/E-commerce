@@ -1,0 +1,29 @@
+<div class="product-wrapper">
+    <div class="product-info-wrapper">
+        <img [src]="product?.image" class="product-image" alt="product-image">
+        <div class="product-info">
+            <p class="title">
+                {{ product?.title }}
+            </p>
+            <p class="price">
+                <span class="bold">{{ product?.commonPrice | rubles}}</span> за шт.
+            </p>
+        </div>
+    </div>
+    <div class="price-control">
+        <div class="counter-wrapper">
+            <button class="control" (click)="decrement()">
+                <img src="assets/basket/basket-minus.svg" alt="">
+            </button>
+            <span class="counter">
+               {{ count }}
+            </span>
+            <button class="control" (click)="increment()">
+                <img src="assets/basket/basket-plus.svg" alt="">
+            </button>
+        </div>
+        <p class="full-price">
+            {{ fullPrice | rubles }}
+        </p>
+    </div>
+</div>

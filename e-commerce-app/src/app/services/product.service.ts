@@ -1,20 +1,23 @@
-import { Injectable } from "@angular/core";
+import { Injectable, NgZone } from "@angular/core";
 import { Product } from "../components/models/product.model";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { AppConfig } from "../app.config";
 
 @Injectable({
     providedIn: 'root'
-  })
+})
 export class ProductService {
-    private apiUrl = 'http://localhost:5159';
 
-    constructor(private http: HttpClient){
+    constructor(
+        private http: HttpClient,
+        private config: AppConfig
+    ) {
 
     }
 
-    getProducts(): Observable<Product[]>{
-        return this.http.get<Product[]>(this.apiUrl);
+    getProducts(): Observable<Product[]> {
+        return this.http.get<Product[]>(this.config.productsApi);
     }
 
     getProductsStab(): Product[] {
