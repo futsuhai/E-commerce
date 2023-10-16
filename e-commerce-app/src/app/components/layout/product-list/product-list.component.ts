@@ -12,10 +12,15 @@ export class ProductListComponent {
 
   products: Product[] = [];
 
-  constructor(private productService: ProductService) {
-    //this.products = this.productService.getProductsStab();
-    this.productService.getProducts().subscribe(data => {
-      this.products = data;
-    });
+  constructor(private productService: ProductService) { }
+
+  ngOnInit() {
+    this.productService.getProducts()
+      .then(data => {
+        this.products = data;
+      })
+      .catch(error => {
+        console.error('Произошла ошибка при загрузке продуктов:', error);
+      });
   }
 }

@@ -1,32 +1,34 @@
 import { Injectable, NgZone } from "@angular/core";
 import { Product } from "../components/models/product.model";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
 import { AppConfig } from "../app.config";
+import { BaseService } from "./base.service";
 
 @Injectable({
     providedIn: 'root'
 })
-export class ProductService {
+export class ProductService extends BaseService {
 
     constructor(
-        private http: HttpClient,
-        private config: AppConfig
-    ) {
+        http: HttpClient,
+        zone: NgZone,
+        protected config: AppConfig
+    ) { super(http, zone) }
 
+    getProducts(): Promise<Product[]> {
+        return this.get(`${this.config.productsApi}/GetProducts`);
     }
 
-    getProducts(): Observable<Product[]> {
-        return this.http.get<Product[]>(this.config.productsApi);
+    getProduct(productId: number): Promise<Product> {
+        return this.get(`${this.config.productsApi}/${productId}`);
+    }
+
+    getProductById(productId: number): Promise<Product>{
+        return this.get(this.config.productsApi);
     }
 
     getProductsStab(): Product[] {
         return ProductService.productsStab
-    }
-
-    getProductById(productId: number): Product | undefined {
-        const foundProduct = ProductService.productsStab.find(p => p.id === productId);
-        return foundProduct;
     }
 
     private static productsStab: Product[] = [

@@ -3,11 +3,12 @@
 
 main {
     background: $main-bg;
+    height: 100vh;
 
-    .basket-wrapper {
-        @include layout-page-style;
+    .container {
         display: flex;
         flex-direction: column;
+        width: 1208px;
         gap: 60px;
         padding: 28px 0px 80px 0px;
 
@@ -17,11 +18,12 @@ main {
             color: $main-surface;
         }
 
-        .basket {
+        .row {
             display: flex;
             gap: 40px;
 
-            .products {
+            .left-column {
+                padding: 0px;
                 display: flex;
                 flex-direction: column;
                 gap: 24px;
@@ -45,13 +47,83 @@ main {
                 }
             }
 
-            .info-wrapper {
+            .right-column {
                 display: flex;
                 flex-direction: column;
-                gap: 48px;
+                gap: 24px;
                 margin-top: 52px;
 
+                .bonus-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
 
+                    .form-switch {
+                        display: flex;
+                        align-items: flex-end;
+                        gap: 10px;
+                        font-family: 'Rubik';
+                        color: $main-surface;
+
+                        .form-check-input {
+                            width: 46px;
+                            height: 24px;
+                        }
+                    }
+
+                    .bonus {
+                        color: $grayscale-hardest;
+                    }
+                }
+
+                .divider {
+                    border: 1px solid $grayscale-hardest;
+                }
+
+                .info-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .info {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        color: $grayscale-dark;
+
+                        .right-text {
+                            color: $main-surface;
+
+                            &.orange {
+                                color: $orange-color;
+                                font-weight: 700;
+                            }
+
+                            &.bold {
+                                font-weight: 700;
+                                font-size: 24px;
+                            }
+                        }
+                    }
+                }
+
+                .bonus-btn {
+                    display: flex;
+                    padding: 8px;
+                    gap: 8px;
+                    font-size: 12px;
+                    align-items: center;
+                    justify-content: center;
+                    color: $green-color;
+                }
+
+                .offer-btn {
+                    padding: 16px;
+                    color: $white-color;
+                    font-size: 24px;
+                    background: $orange-color;
+                    border-radius: 4px;
+                }
             }
         }
     }

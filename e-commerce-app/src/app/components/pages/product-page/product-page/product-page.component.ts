@@ -9,13 +9,19 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-page.component.scss']
 })
 export class ProductPageComponent {
-  product: Product | undefined; 
+  product: Product | undefined;
 
-  constructor(route: ActivatedRoute, productService: ProductService) {
-    let prodId: number = parseInt(route.snapshot.params['productId']);
-    this.product = productService.getProductById(prodId);
-    if (!this.product) {
-      return;
-    }
+  constructor(private route: ActivatedRoute, private productService: ProductService) {
+  }
+
+  ngOnInit() {
+    let prodId: number = parseInt(this.route.snapshot.params['productId']);
+    this.productService.getProduct(prodId)
+      .then(data => {
+        this.product = data
+      })
+      .catch(error => {
+        console.error('Произошла ошибка при загрузке продукта:', error);
+      });
   }
 }
