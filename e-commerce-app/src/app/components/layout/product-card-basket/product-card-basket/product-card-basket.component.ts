@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/components/models/product.model';
+import { IProduct } from 'src/app/components/models/product.model';
 
 @Component({
   selector: 'app-product-card-basket',
@@ -7,7 +7,7 @@ import { Product } from 'src/app/components/models/product.model';
   styleUrls: ['./product-card-basket.component.scss']
 })
 export class ProductCardBasketComponent {
-  @Input() product: Product | undefined;
+  @Input() product: IProduct | undefined;
   count: number = 1;
 
   get fullPrice(): number {

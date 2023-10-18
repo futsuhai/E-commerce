@@ -1,0 +1,16 @@
+<div class="content-wrapper">
+    <div class="content">
+        <button class="add btn" type="button" (click)="openModal()">
+            Добавить продукт
+        </button>
+        <h2 class="title">
+            Список продуктов
+        </h2>
+        <app-product-list [submited$]="submited$" ></app-product-list>
+    </div>
+</div>
+<div class="modal-background" [class.open]="isModalOpen">
+    <div class="modal-content">
+        <app-product-form [submited$]="submited$" (onClose)="closeModal()"></app-product-form>
+    </div>
+</div>

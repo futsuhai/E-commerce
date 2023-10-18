@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+    <img [src]="product.image" alt="product-card-image" class="product-card-image">
+    <div class="content">
+        <div class="price-wrapper">
+            <div class="price">
+                <p class="with-card">
+                    {{ product.cardPrice | rubles }}
+                </p>
+                <p class="type">С картой</p>
+            </div>
+            <div class="price">
+                <p class="without-card">
+                    {{ product.commonPrice | rubles }}
+                </p>
+                <p class="type">Обычная</p>
+            </div>
+        </div>
+        <p class="name">
+            <a [routerLink]="['product', product.id]" class="prod-detail-link">
+                {{ product.title }}, {{ product.weight | grams}}, {{ product.country }}
+            </a>
+        </p>
+        <app-rating [rating]="product.rating"></app-rating>
+        <div class="controls">
+            <button type="button" class="btn">
+                Изменить
+            </button>
+            <button type="button" class="btn">
+                Удалить
+            </button>
+        </div>
+    </div>
+</div>

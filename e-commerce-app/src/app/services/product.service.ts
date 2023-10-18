@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from "@angular/core";
-import { Product } from "../components/models/product.model";
+import { IProduct } from "../components/models/product.model";
 import { HttpClient } from "@angular/common/http";
 import { AppConfig } from "../app.config";
 import { BaseService } from "./base.service";
@@ -15,74 +15,24 @@ export class ProductService extends BaseService {
         protected config: AppConfig
     ) { super(http, zone) }
 
-    getProducts(): Promise<Product[]> {
+    public getProducts(): Promise<IProduct[]> {
         return this.get(`${this.config.productsApi}/GetProducts`);
     }
 
-    getProduct(productId: number): Promise<Product> {
-        return this.get(`${this.config.productsApi}/${productId}`);
+    public getProductById(productId: string): Promise<IProduct> {
+        return this.get(`${this.config.productsApi}/GetProduct/${productId}`);
     }
 
-    getProductById(productId: number): Promise<Product>{
-        return this.get(this.config.productsApi);
+    public addProduct(product: IProduct): Promise<IProduct> {
+        console.log(product);
+        return this.post(`${this.config.productsApi}/AddProduct`, product);
     }
 
-    getProductsStab(): Product[] {
-        return ProductService.productsStab
+    public deleteProduct(productId: string): Promise<IProduct> {
+        return this.delete(`${this.config.productsApi}/DeleteProduct/${productId}`);
     }
 
-    private static productsStab: Product[] = [
-        {
-            id: 0,
-            cardPrice: 44.50,
-            commonPrice: 50.50,
-            title: 'Г/Ц Блинчики с мясом',
-            rating: 3,
-            image: "assets/common/test.jpg",
-            country: 'Россия',
-            weight: 180,
-            article: 371431,
-            reviews: 3,
-            brand: "Мясное хозяйство"
-        },
-        {
-            id: 1,
-            cardPrice: 44.50,
-            commonPrice: 50.50,
-            title: 'Г/Ц Блинчики с мясом',
-            rating: 3,
-            image: "assets/common/product-card.jpg",
-            country: 'Россия',
-            weight: 180,
-            article: 371431,
-            reviews: 3,
-            brand: "Мясное хозяйство"
-        },
-        {
-            id: 2,
-            cardPrice: 44.50,
-            commonPrice: 50.50,
-            title: 'Г/Ц Блинчики с мясом',
-            rating: 3,
-            image: "assets/common/product-card.jpg",
-            country: 'Россия',
-            weight: 180,
-            article: 371431,
-            reviews: 3,
-            brand: "Мясное хозяйство"
-        },
-        {
-            id: 3,
-            cardPrice: 44.50,
-            commonPrice: 50.50,
-            title: 'Г/Ц Блинчики с мясом',
-            rating: 3,
-            image: "assets/common/product-card.jpg",
-            country: 'Россия',
-            weight: 180,
-            article: 371431,
-            reviews: 3,
-            brand: "Мясное хозяйство"
-        },
-    ]
+    public updateProduct(productId: string, product: IProduct): Promise<IProduct> {
+        return this.put(`${this.config.productsApi}/UpdateProduct/${productId}`, product);
+    }
 }

@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
-import { Product } from '../../models/product.model';
+import { IProduct } from '../../models/product.model';
+import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -8,19 +10,19 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./product-list.component.scss']
 })
 
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
 
-  products: Product[] = [];
+  @Input() submited$?: Subject<void>;
+  products: IProduct[] = [];
+  isAdminPage: boolean = false;
 
-  constructor(private productService: ProductService) { }
+  constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
-  ngOnInit() {
-    this.productService.getProducts()
-      .then(data => {
-        this.products = data;
-      })
-      .catch(error => {
-        console.error('Произошла ошибка при загрузке продуктов:', error);
-      });
+  public async ngOnInit() {
+    this.products = await this.productService.getProducts()
+    const currentRoute = this.route.snapshot.url.join('/');
+    if (currentRoute == 'admin') {
+      this.isAdminPage = true;
+    }
   }
 }

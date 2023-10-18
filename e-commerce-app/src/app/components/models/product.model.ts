@@ -1,5 +1,5 @@
-export interface Product {
-    id: number,
+export interface IProduct {
+    id: string,
     cardPrice: number,
     commonPrice: number,
     title: string,

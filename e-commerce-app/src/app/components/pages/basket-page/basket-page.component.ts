@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Product } from 'src/app/components/models/product.model';
+import { Component, OnInit } from '@angular/core';
+import { IProduct } from 'src/app/components/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -7,10 +7,12 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './basket-page.component.html',
   styleUrls: ['./basket-page.component.scss']
 })
-export class BasketPageComponent {
-  products: Product[] = [];
+export class BasketPageComponent implements OnInit{
+  products: IProduct[] = [];
   
-  constructor(private productService: ProductService) {
-    this.products = this.productService.getProductsStab();
+  constructor(private productService: ProductService) { }
+
+  public async ngOnInit() {
+    this.products = await this.productService.getProducts()
   }
 }

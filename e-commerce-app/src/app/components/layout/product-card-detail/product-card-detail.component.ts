@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../models/product.model';
+import { IProduct } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-card-detail',
@@ -7,6 +7,6 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./product-card-detail.component.scss']
 })
 export class ProductCardDetailComponent {
-  @Input() product: Product | undefined;
+  @Input() product: IProduct | undefined;
   bonus: number = 10;
 }

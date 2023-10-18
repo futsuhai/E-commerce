@@ -14,12 +14,19 @@ import { ProductService } from './services/product.service';
 import { RublesPipe } from './components/pipes/rubles.pipe';
 import { ProductPageComponent } from './components/pages/product-page/product-page/product-page.component';
 import { ProductCardDetailComponent } from './components/layout/product-card-detail/product-card-detail.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BasketPageComponent } from './components/pages/basket-page/basket-page.component';
 import { ProductCardBasketComponent } from './components/layout/product-card-basket/product-card-basket/product-card-basket.component';
 import { GramsPipe } from './components/pipes/grams.pipe';
+import { AdminComponent } from './components/pages/admin/admin.component';
+import { ProductCardAdminComponent } from './components/layout/product-card-admin/product-card-admin.component';
+import { ProductFormComponent } from './components/layout/product-form/product-form.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -37,12 +44,19 @@ import { GramsPipe } from './components/pipes/grams.pipe';
     BasketPageComponent,
     ProductCardBasketComponent,
     GramsPipe,
+    AdminComponent,
+    ProductCardAdminComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    CommonModule,
+    HttpClientModule,
+    NoopAnimationsModule,
+    MatDialogModule
   ],
   providers: [ProductService, AuthService],
   bootstrap: [AppComponent]
