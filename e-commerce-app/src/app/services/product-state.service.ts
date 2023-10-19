@@ -5,7 +5,11 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductStateService {
+  private refreshProductListSource = new Subject<void>();
+  //на него подписка
+  refreshProductList$ = this.refreshProductListSource.asObservable();
 
-
-  constructor() { }
+  refreshProductList() {
+    this.refreshProductListSource.next();
+  }
 }
