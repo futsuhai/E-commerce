@@ -32,7 +32,7 @@ export class ProductService extends BaseService {
         return this.delete(`${this.config.productsApi}/DeleteProduct/${productId}`);
     }
 
-    public updateProduct(productId: string, product: IProduct): Promise<IProduct> {
-        return this.put(`${this.config.productsApi}/UpdateProduct/${productId}`, product);
+    public updateProduct(product: IProduct): Promise<IProduct> {
+        return this.put(`${this.config.productsApi}/UpdateProduct/${product.id}`, product);
     }
 }

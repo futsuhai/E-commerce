@@ -1,9 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { IProduct } from '../../models/product.model';
 import { ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs';
-import { ProductStateService } from 'src/app/services/product-state.service';
 
 @Component({
   selector: 'app-product-list',
@@ -13,14 +11,12 @@ import { ProductStateService } from 'src/app/services/product-state.service';
 
 export class ProductListComponent implements OnInit {
 
-  @Input() submited$?: Subject<void>;
   products: IProduct[] = [];
   isAdminPage: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private productStateService: ProductStateService
   ) { }
 
   public async ngOnInit() {
@@ -29,9 +25,11 @@ export class ProductListComponent implements OnInit {
     if (currentRoute == 'admin') {
       this.isAdminPage = true;
     }
-    this.productStateService.refreshProductList$.subscribe(() => {
-      this.refreshProductList();
-    });
+  }
+
+  public async deleteProduct(productId: string): Promise<void>{
+    await this.productService.deleteProduct(productId);
+    await this.refreshProductList();
   }
 
   public async refreshProductList() {

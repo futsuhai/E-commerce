@@ -64,7 +64,7 @@ export class ProductFormComponent {
         this.productForm.reset();
         this.onClose.emit();
         this.submited$?.next();
-        return await this.productService.updateProduct(updatedProduct.id, updatedProduct);//up
+        return await this.productService.updateProduct(updatedProduct);
       } else {
         const product: IProduct = {
           id: Guid.create().toString(),
