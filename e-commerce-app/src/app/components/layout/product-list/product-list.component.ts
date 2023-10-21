@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/services/product.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IProduct } from '../../models/product.model';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,34 +10,33 @@ import { ActivatedRoute } from '@angular/router';
 
 export class ProductListComponent implements OnInit {
 
-  products: IProduct[] = [];
   isAdminPage: boolean = false;
+  @Input() products!: IProduct[];
+  @Output() public updatedProduct = new EventEmitter<IProduct>();
+  @Output() public refreshedProductList = new EventEmitter<void>();
+  @Output() public deletedProduct = new EventEmitter<string>();
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService,
   ) { }
 
   public async ngOnInit() {
-    this.products = await this.productService.getProducts()
+    this.refreshProductList();
     const currentRoute = this.route.snapshot.url.join('/');
     if (currentRoute == 'admin') {
       this.isAdminPage = true;
     }
   }
 
-  public async deleteProduct(productId: string): Promise<void>{
-    await this.productService.deleteProduct(productId);
-    await this.refreshProductList();
+  public deleteProduct(): void{
+    this.deletedProduct.emit();
   }
 
-  public async updateProduct(product: IProduct): Promise<void>{
-    await this.productService.updateProduct(product);
-    await this.refreshProductList();
+  public updateProduct(): void{
+    this.updatedProduct.emit();
   }
 
-  public async refreshProductList() {
-    this.products = await this.productService.getProducts();
-    console.log("asd");
+  public refreshProductList(): void{
+    this.refreshedProductList.emit();
   }
 }

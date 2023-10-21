@@ -6,7 +6,12 @@
         <h2 class="title">
             Список продуктов
         </h2>
-        <app-product-list></app-product-list>
+        <app-product-list
+            [products]="products"
+            (updatedProduct)="updateProduct($event)"
+            (deletedProduct)="deleteProduct($event)"
+            (refreshedProductList)="refreshProductList()"
+        ></app-product-list>
     </div>
 </div>
 <div class="modal-background" [class.open]="isModalOpen">

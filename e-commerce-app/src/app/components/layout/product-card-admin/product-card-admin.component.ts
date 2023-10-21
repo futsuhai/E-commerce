@@ -19,7 +19,6 @@ export class ProductCardAdminComponent {
   }
 
   public updateProduct(): void {
-    console.log("ZXC");
     this.updatedProductList.emit();
   }
   openModal() {
