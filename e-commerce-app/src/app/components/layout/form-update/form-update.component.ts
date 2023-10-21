@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductService } from 'src/app/services/product.service';
 import { IProduct } from '../../models/product.model';
 
 @Component({
@@ -11,12 +10,12 @@ import { IProduct } from '../../models/product.model';
 export class FormUpdateComponent implements OnInit{
   @Input() product!: IProduct ;
   @Output() onClose = new EventEmitter<void>();
-  @Output() public updatedProductList = new EventEmitter<IProduct>();
+  @Output() public updatedProduct = new EventEmitter<IProduct>();
   selectedFile: File | null = null;
   selectedFileUrl: string | null = null;
   productForm!: FormGroup;
 
-  constructor(private productService: ProductService, private formBuilder: FormBuilder) 
+  constructor(private formBuilder: FormBuilder) 
   {
 
   }
@@ -53,7 +52,7 @@ export class FormUpdateComponent implements OnInit{
         };
         this.productForm.reset();
         this.onClose.emit();
-        this.updatedProductList.emit(updatedProduct);
+        this.updatedProduct.emit(updatedProduct);
       }
     this.onClose.emit();
   }

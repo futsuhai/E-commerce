@@ -20,6 +20,11 @@ export class AdminComponent {
     this.refreshProductList();
   }
 
+  public async createProduct(product: IProduct): Promise<void>{
+    await this.productService.addProduct(product);
+    await this.refreshProductList();
+  }
+
   public async deleteProduct(productId: string): Promise<void>{
     await this.productService.deleteProduct(productId);
     await this.refreshProductList();

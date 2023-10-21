@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Guid } from 'guid-typescript';
-import { ProductService } from 'src/app/services/product.service';
 import { IProduct } from '../../models/product.model';
 
 @Component({
@@ -11,11 +10,12 @@ import { IProduct } from '../../models/product.model';
 })
 export class FormCreateComponent {
   @Output() onClose = new EventEmitter<void>();
+  @Output() public createdProduct = new EventEmitter<IProduct>();
   selectedFile: File | null = null;
   selectedFileUrl: string | null = null;
   productForm!: FormGroup;
 
-  constructor(private productService: ProductService, private formBuilder: FormBuilder) 
+  constructor(private formBuilder: FormBuilder) 
   {
     this.productForm = this.formBuilder.group({
       title: ['', Validators.required],
@@ -28,7 +28,7 @@ export class FormCreateComponent {
     });
   }
 
-  public async onSubmit(): Promise<IProduct | null> {
+  public async onSubmit(): Promise<void> {
     if (this.productForm.valid) {
       const formValue = this.productForm.value;
         const product: IProduct = {
@@ -46,10 +46,9 @@ export class FormCreateComponent {
         };
         this.productForm.reset();
         this.onClose.emit();
-        return await this.productService.addProduct(product);
+        this.createdProduct.emit(product);
       }
     this.onClose.emit();
-    return null;
   }
 
   onFileSelected(event: Event) {
