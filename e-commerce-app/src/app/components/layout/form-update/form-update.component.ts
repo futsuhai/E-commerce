@@ -11,7 +11,7 @@ import { IProduct } from '../../models/product.model';
 export class FormUpdateComponent implements OnInit{
   @Input() product!: IProduct ;
   @Output() onClose = new EventEmitter<void>();
-  @Output() public updatedProductList = new EventEmitter<void>();
+  @Output() public updatedProductList = new EventEmitter<IProduct>();
   selectedFile: File | null = null;
   selectedFileUrl: string | null = null;
   productForm!: FormGroup;
@@ -53,8 +53,7 @@ export class FormUpdateComponent implements OnInit{
         };
         this.productForm.reset();
         this.onClose.emit();
-        await this.productService.updateProduct(updatedProduct);
-        this.updatedProductList.emit();
+        this.updatedProductList.emit(updatedProduct);
       }
     this.onClose.emit();
   }

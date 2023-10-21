@@ -10,7 +10,7 @@ export class ProductCardAdminComponent {
   @Input() product!: IProduct;
   isModalOpen = false;
   @Output() public deletedProduct = new EventEmitter<string>();
-  @Output() public updatedProductList = new EventEmitter<void>();
+  @Output() public updatedProduct = new EventEmitter<IProduct>();
 
   constructor() { }
 
@@ -18,8 +18,8 @@ export class ProductCardAdminComponent {
     this.deletedProduct.emit(this.product.id);
   }
 
-  public updateProduct(): void {
-    this.updatedProductList.emit();
+  public updateProduct(product: IProduct): void {
+    this.updatedProduct.emit(product);
   }
   openModal() {
     this.isModalOpen = true;

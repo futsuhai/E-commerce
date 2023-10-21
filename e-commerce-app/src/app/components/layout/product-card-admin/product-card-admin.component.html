@@ -35,7 +35,7 @@
     <div class="modal-content">
         <app-form-update 
             [product]="product"
-            (updatedProductList)="updateProduct()"
+            (updatedProductList)="updateProduct($event)"
             (onClose)="closeModal()"
         ></app-form-update>
     </div>

@@ -8,7 +8,7 @@
         <app-product-card-admin *ngFor="let product of products" 
             [product]="product" 
             (deletedProduct)="deleteProduct($event)"
-            (updatedProductList)="refreshProductList()"
+            (updatedProduct)="updateProduct($event)"
         ></app-product-card-admin>
     </ng-container>
 </div>

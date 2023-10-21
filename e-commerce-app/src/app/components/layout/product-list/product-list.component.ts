@@ -13,30 +13,25 @@ export class ProductListComponent implements OnInit {
   isAdminPage: boolean = false;
   @Input() products!: IProduct[];
   @Output() public updatedProduct = new EventEmitter<IProduct>();
-  @Output() public refreshedProductList = new EventEmitter<void>();
   @Output() public deletedProduct = new EventEmitter<string>();
-
+  
   constructor(
     private route: ActivatedRoute,
   ) { }
 
-  public async ngOnInit() {
-    this.refreshProductList();
+  public ngOnInit() {
     const currentRoute = this.route.snapshot.url.join('/');
     if (currentRoute == 'admin') {
       this.isAdminPage = true;
     }
   }
-
-  public deleteProduct(): void{
-    this.deletedProduct.emit();
+  
+  public deleteProduct(productId: string): void{
+    this.deletedProduct.emit(productId);
   }
-
-  public updateProduct(): void{
-    this.updatedProduct.emit();
-  }
-
-  public refreshProductList(): void{
-    this.refreshedProductList.emit();
+  
+  public updateProduct(product: IProduct): void{
+    this.updatedProduct.emit(product);
   }
 }
+

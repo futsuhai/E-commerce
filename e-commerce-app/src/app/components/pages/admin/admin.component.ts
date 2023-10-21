@@ -16,6 +16,10 @@ export class AdminComponent {
     private productService: ProductService,
   ) { }
 
+  public async ngOnInit(){
+    this.refreshProductList();
+  }
+
   public async deleteProduct(productId: string): Promise<void>{
     await this.productService.deleteProduct(productId);
     await this.refreshProductList();
