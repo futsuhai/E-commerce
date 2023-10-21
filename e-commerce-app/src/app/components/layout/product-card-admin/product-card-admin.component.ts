@@ -12,11 +12,11 @@ export class ProductCardAdminComponent {
   @Output() public deletedProduct = new EventEmitter<string>();
   @Output() public updatedProductList = new EventEmitter<void>();
 
+  constructor() { }
+
   public deleteProduct(): void {
     this.deletedProduct.emit(this.product.id);
   }
-
-  constructor() { }
 
   public updateProduct(): void {
     console.log("ZXC");

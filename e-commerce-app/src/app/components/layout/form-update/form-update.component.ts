@@ -52,9 +52,9 @@ export class FormUpdateComponent implements OnInit{
           brand: formValue.brand
         };
         this.productForm.reset();
-        this.updatedProductList.emit();
         this.onClose.emit();
         await this.productService.updateProduct(updatedProduct);
+        this.updatedProductList.emit();
       }
     this.onClose.emit();
   }
