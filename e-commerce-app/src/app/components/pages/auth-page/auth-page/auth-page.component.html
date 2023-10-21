@@ -1,58 +1,82 @@
 <div class="bg-wrapper">
     <div class="auth-wrapper">
-        <div class="company-wrapper">
-            <h1 class="company-title">
-                О компании
-            </h1>
-            <p class="company-desc">
-                Основная миссия компании - максимальное качество товаров и услуг по доступной цене. Мы непрерывно
-                развиваемся и работаем над совершенствованием сервиса, заботимся о наших клиентах,
-                стремимся к лучшему будущему.
-            </p>
-        </div>
-        <div class="auth-form">
-            <form class="base-form" *ngIf="switchForm">
+        <div class="form-wrapper">
+            <div class="logo-wrapper">
                 <img src="assets/header/header-logo.svg" alt="auth-logo">
+            </div>
+            <ul class="nav">
+                <li class="tab">
+                    <a class="link" [class.active]="switchForm" (click)="showLoginForm()">Авторизация</a>
+                </li>
+                <li class="tab">
+                    <a class="link" [class.active]="!switchForm" (click)="showRegistrationForm()">Регистрация</a>
+                </li>
+            </ul>
+            <form *ngIf="switchForm" class="base-form login-form">
                 <div class="form-group">
-                    <label for="login">Логин:</label>
-                    <input class="data-input" type="text" id="login" name="login">
+                    <label class="form-label" for="login">Логин:</label>
+                    <input class="form-control" type="text" id="login" name="login">
                 </div>
                 <div class="form-group">
-                    <label for="password">Пароль:</label>
+                    <label class="form-label" for="password">Пароль:</label>
                     <div class="pass-input">
-                        <input class="data-input" type="password" id="password" name="password">
+                        <input class="form-control" type="password" id="password" name="password">
                         <img src="assets/common/eye-fill.svg" alt="hide-password" class="toggle-pass"
                             (click)="hidePassword('password')">
                     </div>
                 </div>
                 <button type="sumbit" class="btn btn-success">Войти</button>
-                <button type="button" class="btn-light" (click)="showRegistrationForm()">Регистрация</button>
             </form>
-            <form class="base-form" *ngIf="!switchForm">
-                <img src="assets/header/header-logo.svg" alt="auth-logo">
+            <form *ngIf="!switchForm" class="base-form reg-form">
                 <div class="form-group">
-                    <label for="login">Логин:</label>
-                    <input class="data-input" type="text" id="login" name="login">
+                    <label class="form-label" for="login">Логин:</label>
+                    <input class="form-control" type="text" id="login" name="login">
                 </div>
                 <div class="form-group">
-                    <label for="password">Пароль:</label>
+                    <label class="form-label" for="email">Электронная почта:</label>
+                    <input class="form-control" type="email" id="email" name="email" placeholder="email@mail.ru">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Пароль:</label>
                     <div class="pass-input">
-                        <input class="data-input" type="password" id="password" name="password">
+                        <input class="form-control" type="password" id="password" name="password">
                         <img src="assets/common/eye-fill.svg" alt="hide-password" class="toggle-pass"
                             (click)="hidePassword('password')">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password">Повторите пароль:</label>
+                    <label class="form-label" for="confirm-password">Подтверждение пароля:</label>
                     <div class="pass-input">
-                        <input class="data-input" type="password" id="password-repeat" name="password-repeat">
+                        <input class="form-control" type="password" id="confirm-password" name="password">
                         <img src="assets/common/eye-fill.svg" alt="hide-password" class="toggle-pass"
-                            (click)="hidePassword('password-repeat')">
+                            (click)="hidePassword('confirm-password')">
                     </div>
                 </div>
-                <button type="sumbit" class="btn btn-success">Регистрация</button>
-                <button type="button" class="btn-light" (click)="showLoginForm()">Авторизация</button>
+                <button type="sumbit" class="btn btn-success">Войти</button>
             </form>
+        </div>
+        <div class="info">
+            <div class="company-wrapper">
+                <h1 class="company-title">
+                    О компании
+                </h1>
+                <p class="company-desc">
+                    Основная миссия компании - максимальное качество товаров и услуг по доступной цене. Мы непрерывно
+                    развиваемся и работаем над совершенствованием сервиса, заботимся о наших клиентах,
+                    стремимся к лучшему будущему.
+                </p>
+            </div>
+            <div class="banner">
+                <div class="desc">
+                    <p class="title">
+                        Оформите карту «Северяночка»
+                    </p>
+                    <p class="text">
+                        И получайте бонусы при покупке в магазинах и на сайте
+                    </p>
+                </div>
+                <img src="assets/common/card.svg" alt="card">
+            </div>
         </div>
     </div>
 </div>

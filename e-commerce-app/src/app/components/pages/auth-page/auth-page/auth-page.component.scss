@@ -3,60 +3,93 @@
 
 .bg-wrapper {
     background: $main-bg;
-    height: 800px;
-    display: flex;
-    flex-direction: column;
+    width: 100vw;
+    margin: 0 auto;
+    height: 100vh;
 
     .auth-wrapper {
-        @include layout-page-style;
         display: flex;
         justify-content: space-around;
-        padding: 40px 0px;
+        padding: 40px 356px;
 
-        .company-wrapper {
+        .info {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            width: 560px;
+            gap: 30px;
 
-            .company-title {
-                color: $main-surface;
-                font-size: 64px;
-                font-weight: 700;
+            .company-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                width: 560px;
+
+                .company-title {
+                    color: $main-surface;
+                    font-size: 64px;
+                    font-weight: 700;
+                }
+
+                .company-desc {
+                    color: $orange-color;
+                    font-size: 24px;
+                    font-weight: 700;
+                }
             }
 
-            .company-desc {
-                color: $orange-color;
-                font-size: 24px;
-                font-weight: 700;
+            .banner {
+                display: flex;
+                padding: 20px 30px ;
+                background: $main-primary-muted;
+                border-radius: 4px;
+                box-shadow: 0px 8px 16px 0px rgba(202, 147, 96, 0.50);
+
+                .desc {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    width: 260px;
+
+                    .title {
+                        font-size: 24px;
+                        font-weight: 700;
+                        line-height: 36px;
+                    }
+
+                    .text {
+                        font-size: 16px;
+                    }
+                }
             }
         }
 
-        .auth-form {
-            width: 30%;
-            height: 400px;
+        .form-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
             background: $white-color;
             border: 1px solid $green-color;
             border-radius: 8px;
-            padding: 20px 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 32px;
+            padding: 30px 40px;
 
-            .form-title {
+            .logo-wrapper {
                 display: flex;
-                gap: 8px;
+                justify-content: center;
+            }
 
-                .btn {
-                    background-color: $green-color;
-                    border: 1px solid $green-color;
-                    font-family: 'Rubik';
-                    font-size: 20px;
+            .nav {
+                display: flex;
+                gap: 20px;
 
-                    &:hover {
-                        background: $orange-color;
-                        border: 1px solid $orange-color;
+                .tab {
+                    .link {
+                        color: $green-color;
+                        font-size: 20px;
+                        cursor: pointer;
+
+                        &.active {
+                            color: $orange-color;
+                            border-bottom: 2px solid $orange-color;
+                        }
                     }
                 }
             }
@@ -64,31 +97,29 @@
             .base-form {
                 display: flex;
                 flex-direction: column;
-                gap: 16px;
-                align-items: center;
-                color: $main-surface;
+                gap: 32px;
 
                 .form-group {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 4px;
-                    font-size: 18px;
                     font-family: 'Rubik';
 
-                    .data-input {
-                        padding-left: 8px;
-                        border: 1px solid $green-color;
+                    .form-label {
+                        font-size: 16px;
+                    }
+
+                    .form-control {
+                        padding: 7px;
                         border-radius: 4px;
-                        font-family: 'Rubik';
+                        border: 1px solid $green-color;
                     }
 
                     .pass-input {
                         position: relative;
 
                         .toggle-pass {
+                            cursor: pointer;
                             position: absolute;
-                            right: 6px;
-                            top: 6px;
+                            right: 8px;
+                            top: 10px;
                         }
                     }
                 }
@@ -96,8 +127,6 @@
                 .btn {
                     background-color: $green-color;
                     border: 1px solid $green-color;
-                    display: flex;
-                    padding: 4px 32px;
                     font-size: 20px;
                     font-family: 'Rubik';
 
@@ -105,11 +134,6 @@
                         background: $orange-color;
                         border: 1px solid $orange-color;
                     }
-                }
-
-                .btn-light {
-                    font-family: 'Rubik';
-                    font-size: 16px;
                 }
             }
         }

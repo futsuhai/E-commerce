@@ -32,7 +32,13 @@ export class ProductListComponent implements OnInit {
     await this.refreshProductList();
   }
 
+  public async updateProduct(product: IProduct): Promise<void>{
+    await this.productService.updateProduct(product);
+    await this.refreshProductList();
+  }
+
   public async refreshProductList() {
     this.products = await this.productService.getProducts();
+    console.log("asd");
   }
 }

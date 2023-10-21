@@ -1,0 +1,39 @@
+<form class="product-form" [formGroup]="productForm">
+    <div class="product-properties">
+      <div class="form-group">
+        <label for="title">Название:</label>
+        <input type="text" class="form-control" id="title" formControlName="title" value="product.title">
+      </div>
+      <div class="form-group">
+        <label for="country">Страна производитель:</label>
+        <input type="text" class="form-control" id="country" formControlName="country">
+      </div>
+      <div class="form-group">
+        <label for="brand">Брэнд:</label>
+        <input type="text" class="form-control" id="brand" formControlName="brand">
+      </div>
+      <div class="form-group">
+        <label for="article">Артикул:</label>
+        <input type="number" class="form-control" id="article"  formControlName="article">
+      </div>
+      <div class="form-group">
+        <label for="weight">Вес:</label>
+        <input type="number" class="form-control" id="weight"  formControlName="weight">
+      </div>
+      <div class="form-group">
+        <label for="commonPrice">Цена:</label>
+        <input type="number" class="form-control" id="commonPrice"  formControlName="commonPrice">
+      </div>
+      <div class="form-group">
+        <label for="cardPrice">Цена с картой:</label>
+        <input type="number" class="form-control" id="cardPrice"  formControlName="cardPrice">
+      </div>
+      <input type="file" (change)="onFileSelected($event)">
+      <button type="submit" class="btn" (click)="onSubmit()">Изменить товар</button>
+    </div>
+    <div class="product-image">
+      <img class="product-image" src="https://dummyimage.com/500x500/ff6633/fff" *ngIf="!selectedFileUrl" alt="default-image">
+      <img class="product-image" [src]="selectedFileUrl" *ngIf="selectedFileUrl" alt="Выбранный файл">
+      <p class="selected-file" *ngIf="selectedFile">Выбран файл: {{ selectedFile.name }}</p>   
+    </div>
+  </form>

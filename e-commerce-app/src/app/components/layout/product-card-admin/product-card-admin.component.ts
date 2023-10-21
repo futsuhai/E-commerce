@@ -8,10 +8,25 @@ import { IProduct } from '../../models/product.model';
 })
 export class ProductCardAdminComponent {
   @Input() product!: IProduct;
-
+  isModalOpen = false;
   @Output() public deletedProduct = new EventEmitter<string>();
+  @Output() public updatedProductList = new EventEmitter<void>();
 
   public deleteProduct(): void {
     this.deletedProduct.emit(this.product.id);
+  }
+
+  constructor() { }
+
+  public updateProduct(): void {
+    console.log("ZXC");
+    this.updatedProductList.emit();
+  }
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
   }
 }

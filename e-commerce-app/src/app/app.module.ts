@@ -22,10 +22,11 @@ import { ProductCardBasketComponent } from './components/layout/product-card-bas
 import { GramsPipe } from './components/pipes/grams.pipe';
 import { AdminComponent } from './components/pages/admin/admin.component';
 import { ProductCardAdminComponent } from './components/layout/product-card-admin/product-card-admin.component';
-import { ProductFormComponent } from './components/layout/product-form/product-form.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
+import { FormUpdateComponent } from './components/layout/form-update/form-update.component';
+import { FormCreateComponent } from './components/layout/form-create/form-create.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { CommonModule } from '@angular/common';
     GramsPipe,
     AdminComponent,
     ProductCardAdminComponent,
-    ProductFormComponent,
+    FormUpdateComponent,
+    FormCreateComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,3 +2,8 @@
     width: 1208px;
     margin: 0 auto;
 }
+
+@mixin layout{
+    width: 100%;
+    margin: 0 auto;
+}

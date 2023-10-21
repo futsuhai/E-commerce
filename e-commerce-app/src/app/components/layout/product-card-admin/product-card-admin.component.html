@@ -22,12 +22,21 @@
         </p>
         <app-rating [rating]="product.rating"></app-rating>
         <div class="controls">
-            <button type="button" class="btn">
+            <button type="button" class="btn" (click)="openModal()">
                 Изменить
             </button>
             <button type="button" class="btn" (click)="deleteProduct()">
                 Удалить
             </button>
         </div>
+    </div>
+</div>
+<div class="modal-background" [class.open]="isModalOpen">
+    <div class="modal-content">
+        <app-form-update 
+         [product]="product"
+            (updatedProductList)="updateProduct()"
+            (onClose)="closeModal()"
+        ></app-form-update>
     </div>
 </div>
