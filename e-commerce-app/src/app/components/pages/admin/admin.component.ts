@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { IProduct } from '../../models/product.model';
 
@@ -7,7 +7,7 @@ import { IProduct } from '../../models/product.model';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
 
   products: IProduct[] = [];
   isModalOpen = false;
