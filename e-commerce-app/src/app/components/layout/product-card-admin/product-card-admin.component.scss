@@ -7,8 +7,8 @@
     flex-direction: column;
 
     .product-card-image {
-        height: 160px;
-        object-fit: cover;
+        height: 230px;
+        object-fit: contain;
     }
 
     .content {

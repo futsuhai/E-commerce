@@ -6,7 +6,10 @@
     padding: 60px 0px;
 
     .content {
-        @include layout-page-style;
+        max-width: 1208px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px 16px;
         display: flex;
         flex-direction: column;
         gap: 40px;

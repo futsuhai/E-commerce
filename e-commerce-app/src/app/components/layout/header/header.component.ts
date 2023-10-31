@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  isBurgerIconActive = false;
+
+  toggleBurgerIcon() {
+    this.isBurgerIconActive = !this.isBurgerIconActive;
+  }
 }

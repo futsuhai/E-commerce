@@ -1,34 +1,48 @@
-<header>
-    <nav>
-        <img src="assets/header/header-logo.svg" alt="header-logo">
-        <div class="search-wrapper">
-            <button type="button" class="btn btn-success">
-                <img src="assets/header/header-menu.svg" alt="header-menu">
-                Каталог
-            </button>
-            <div class="search-input-wrapper">
-                <input class="search-input" placeholder="Найти товар">
-                <img src="assets/header/header-search.svg" alt="header-search">
+<div class="header-wrapper">
+    <header class="header" [class.header-mobile]="isBurgerIconActive">
+        <div class="logo">
+            <img src="assets/header/header-logo.svg" alt="header-logo">
+            <i 
+                [class.fa-bars]="!isBurgerIconActive"
+                [class.fa-xmark]="isBurgerIconActive"
+                class="fa-solid logo-burger"
+                (click)="toggleBurgerIcon()"
+            ></i>
+        </div>
+        <nav [ngClass]="isBurgerIconActive ? 'content-mobile' : 'content'">
+            <div class="search">
+                <div class="search-btn-wrapper">
+                    <button type="button" class="btn btn-success">
+                        <img src="assets/header/header-menu.svg" alt="header-menu">
+                        Каталог
+                    </button>
+                </div>
+                <div class="search-input-wrapper">
+                    <input class="search-input" placeholder="Найти товар">
+                    <img src="assets/header/header-search.svg" alt="header-search">
+                </div>
             </div>
-        </div>
-        <div class="navigation-wrapper">
-            <ul class="navigation">
-                <li class="navigation-item">
-                    <img src="assets/header/header-heart.svg" alt="navigation-icon" class="navigation-icon">
-                    <a href="" class="navigation-link">Избранное</a>
-                </li>
-                <li class="navigation-item">
-                    <img src="assets/header/header-box.svg" alt="navigation-icon" class="navigation-icon">
-                    <a href="" class="navigation-link">Заказы</a>
-                </li>
-                <li class="navigation-item"  routerLink="/basket">
-                    <img src="assets/header/header-basket.svg" alt="navigation-icon" class="navigation-icon">
-                    <a href="" class="navigation-link">Корзина</a>
-                </li>
-            </ul>
-            <button type="button" class="btn btn-success" routerLink="/auth">
-                Авторизация
-            </button>
-        </div>
-    </nav>
-</header>
+            <div class="controls">
+                <ul class="navigation">
+                    <li class="navigation-item">
+                        <img src="assets/header/header-heart.svg" alt="navigation-icon" class="navigation-icon">
+                        <a href="" class="navigation-link">Избранное</a>
+                    </li>
+                    <li class="navigation-item">
+                        <img src="assets/header/header-box.svg" alt="navigation-icon" class="navigation-icon">
+                        <a href="" class="navigation-link">Заказы</a>
+                    </li>
+                    <li class="navigation-item"  routerLink="/basket">
+                        <img src="assets/header/header-basket.svg" alt="navigation-icon" class="navigation-icon">
+                        <a href="" class="navigation-link">Корзина</a>
+                    </li>
+                </ul>
+                <div class="profile">
+                    <button type="button" class="btn btn-success" routerLink="/auth">
+                        Авторизация
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+</div>

@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
 import { FormUpdateComponent } from './components/layout/form-update/form-update.component';
 import { FormCreateComponent } from './components/layout/form-create/form-create.component';
+import { TestingPageComponent } from './components/pages/testing-page/testing-page.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { FormCreateComponent } from './components/layout/form-create/form-create
     ProductCardAdminComponent,
     FormUpdateComponent,
     FormCreateComponent,
+    TestingPageComponent,
   ],
   imports: [
     BrowserModule,

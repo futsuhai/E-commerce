@@ -1,81 +1,221 @@
 @import "src/assets/variables.scss";
 @import "src/mixins/mixins.scss";
 
-header {
+.header-wrapper {
     width: 100vw;
-    padding: 1rem 0rem;
     margin-bottom: 4px;
+    padding: 0px 16px;
     box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.10);
 
-    nav {
-        @include layout-page-style;
+    .header {
+        max-width: 1208px;
+        height: 72px;
+        margin-left: auto;
+        margin-right: auto;
         display: flex;
+        align-items: center;
         gap: 40px;
-        justify-content: space-between;
 
-        .btn {
+        .logo {
             display: flex;
-            justify-content: center;
-            padding: 8px;
-            width: 140px;
-            border-radius: 4px;
-            background: $green-color;
-            --bs-btn-border-color: none;
-            font-family: 'Rubik';
-            justify-content: space-around;
-        }
+            justify-content: space-between;
+            align-items: center;
 
-        .search-wrapper {
-            display: flex;
-            gap: 16px;
-
-            .search-input-wrapper {
-                padding: 7px;
-                border-radius: 4px;
-                border: 1px solid $green-color;
-                display: flex;
-                gap: 10px;
-
-                .search-input {
-                    width: 324px;
-                }
+            .logo-burger {
+                display: none;
+                width: 16px;
+                height: 16px;
             }
         }
 
-        .navigation-wrapper {
+        .content {
             display: flex;
-            gap: 24px;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
 
-            .navigation {
+            .btn {
+                display: flex;
+                justify-content: center;
+                justify-content: space-around;
+                padding: 8px;
+                width: 140px;
+                border-radius: 4px;
+                background: $green-color;
+                --bs-btn-border-color: none;
+                font-family: 'Rubik';
+            }
+
+            .search {
+                display: flex;
+                gap: 16px;
+
+                .search-input-wrapper {
+                    padding: 7px;
+                    border-radius: 4px;
+                    border: 1px solid $green-color;
+                    display: flex;
+                    gap: 10px;
+
+                    .search-input {
+                        width: 320px;
+                    }
+                }
+            }
+
+            .controls {
                 display: flex;
                 gap: 24px;
+                justify-content: space-between;
+                align-items: center;
 
-                .navigation-item {
+                .navigation {
                     display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    cursor: pointer;
+                    gap: 24px;
 
-                    .navigation-icon {
-                        width: 22px;
+                    .navigation-item {
+                        display: flex;
+                        gap: 8px;
+                        flex-direction: column;
+                        align-items: center;
+                        cursor: pointer;
+
+                        .navigation-icon {
+                            width: 24px;
+                        }
+
+                        .navigation-link {
+                            line-height: 18px;
+                            font-size: 12px;
+                            color: $main-surface;
+                        }
                     }
+                }
 
-                    .navigation-link {
-                        font-size: 12px;
-                        color: $main-surface;
+                .profile {
+                    //user profile styles
+                }
+            }
+        }
+    }
+}
+
+@include tablet--netbook {
+    .header-wrapper {
+        .header {
+            gap: 12px;
+
+            .content {
+                .search {
+                    .search-input-wrapper {
+                        .search-input {
+                            width: 240px;
+                        }
+                    }
+                }
+
+                .controls {
+                    gap: 12px;
+
+                    .navigation {
+                        gap: 12px;
                     }
                 }
             }
+        }
+    }
+}
 
-            .user-profile {
+@include tablet- {
+    .header-wrapper {
+        .header-mobile{
+            max-width: 1208px;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header {
+            display: block;
+
+            .logo {
+                height: 72px;
+                .logo-burger {
+                    display: block;
+                }
+            }
+
+            .content {
+                display: none;
+            }
+
+            .content-mobile {
                 display: flex;
+                flex-direction: column-reverse;
                 align-items: center;
-                gap: 10px;
+                gap: 16px;
 
-                .user-avatar {
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 40px;
+                .btn {
+                    display: flex;
+                    justify-content: center;
+                    justify-content: space-around;
+                    padding: 8px;
+                    width: 140px;
+                    border-radius: 4px;
+                    background: $green-color;
+                    --bs-btn-border-color: none;
+                    font-family: 'Rubik';
+                }
+
+                .search {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 16px;
+
+                    .search-input-wrapper {
+                        padding: 7px;
+                        border-radius: 4px;
+                        border: 1px solid $green-color;
+                        display: flex;
+                        gap: 10px;
+
+                        .search-input {
+                            width: 320px;
+                        }
+                    }
+                }
+
+                .controls {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    gap: 24px;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .navigation {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 24px;
+
+                        .navigation-item {
+                            display: flex;
+                            gap: 8px;
+                            flex-direction: row;
+                            align-items: center;
+                            cursor: pointer;
+
+                            .navigation-icon {
+                                width: 24px;
+                            }
+
+                            .navigation-link {
+                                line-height: 18px;
+                                font-size: 12px;
+                                color: $main-surface;
+                            }
+                        }
+                    }
                 }
             }
         }

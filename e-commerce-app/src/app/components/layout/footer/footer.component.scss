@@ -1,25 +1,27 @@
 @import "src/assets/variables.scss";
 @import "src/mixins/mixins.scss";
 
-footer {
-    width: 100%;
-    padding: 24px 0px 58px 0px;
+.footer {
+    width: 100vw;
+    padding: 24px 16px 58px 16px;
     background: $main-bg;
     background-image: url('/assets/footer/footer-background.svg');
 
     .layout-container {
-        @include layout-page-style;
+        max-width: 1208px;
+        margin-left: auto;
+        margin-right: auto;
         display: flex;
-        gap: 133px;
+        align-items: center;
+        justify-content: space-between;
 
         .menu-wrapper {
             display: flex;
-            flex-direction: row;
+            align-items: center;
             gap: 40px;
 
             .navigation-list {
                 display: flex;
-                flex-direction: row;
                 gap: 40px;
 
                 .navigarion-item {
@@ -33,18 +35,19 @@ footer {
 
         .contact-wrapper {
             display: flex;
-            flex-direction: row;
+            align-items: center;
             gap: 40px;
 
             .social-list {
                 display: flex;
-                flex-direction: row;
+                align-items: center;
                 gap: 16px;
 
                 .social-item {
                     .social-link {
                         .footer-social {
-                            vertical-align: middle;
+                            width: 24px;
+                            height: 24px;
                         }
                     }
                 }
@@ -52,9 +55,82 @@ footer {
 
             .phone-wrapper {
                 display: flex;
-                align-items: flex-start;
-                flex-direction: row;
+                align-items: center;
                 gap: 8px;
+
+                .footer-phone {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .number {
+                    margin: 0px;
+                }
+            }
+        }
+    }
+}
+
+@include netbook- {
+    .footer {
+        .layout-container {
+            .menu-wrapper {
+                gap: 16px;
+
+                .navigation-list {
+                    gap: 20px;
+                }
+            }
+
+            .contact-wrapper {
+                gap: 16px;
+
+                .social-list {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                }
+            }
+        }
+    }
+}
+
+@include tablet-{
+    .footer {
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+    
+            .menu-wrapper {
+                gap: 16px;
+    
+                .navigation-list {
+                    display: flex;
+                    gap: 16px;
+                }
+            }
+        }
+    }
+}
+
+@include mobile{
+    .footer {
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 32px;
+    
+            .menu-wrapper {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 16px;
+    
+                .navigation-list {
+                    flex-direction: column;
+                    gap: 16px;
+                }
             }
         }
     }
