@@ -49,13 +49,13 @@
                 Наши магазины
             </h2>
             <div class="buttons-row">
-                <button *ngFor="let data of mapData; let i = index" class="location"
+                <button *ngFor="let data of maps; let i = index" class="location"
                     [class.active]="i === selectedMapIndex" (click)="selectMap(i)">
                     {{ data.location }}
                 </button>
             </div>
             <div class="map-wrapper">
-                <iframe class="map" [src]="mapData[selectedMapIndex].link"></iframe>
+                <iframe class="map" [src]="maps[selectedMapIndex].link"></iframe>
             </div>
         </div>
     </div>
