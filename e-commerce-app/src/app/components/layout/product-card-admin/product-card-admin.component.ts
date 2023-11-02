@@ -7,8 +7,9 @@ import { IProduct } from '../../models/product.model';
   styleUrls: ['./product-card-admin.component.scss']
 })
 export class ProductCardAdminComponent {
+
   @Input() product!: IProduct;
-  isModalOpen = false;
+  public isModalOpen = false;
   @Output() public deletedProduct = new EventEmitter<string>();
   @Output() public updatedProduct = new EventEmitter<IProduct>();
 
@@ -21,11 +22,11 @@ export class ProductCardAdminComponent {
   public updateProduct(product: IProduct): void {
     this.updatedProduct.emit(product);
   }
-  openModal() {
+  public openModal(): void {
     this.isModalOpen = true;
   }
 
-  closeModal() {
+  public closeModal(): void {
     this.isModalOpen = false;
   }
 }

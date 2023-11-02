@@ -6,8 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./rating.component.scss']
 })
 export class RatingComponent {
+
   private _rating: number = 0;
-  stars: boolean[] = [];
+  private stars: boolean[] = [];
   private maxStars: number = 5;
   @Input() readonly: boolean = true;
   @Input() get rating(): number {
@@ -18,5 +19,4 @@ export class RatingComponent {
       this._rating = value || 0;
       this.stars = Array(this.maxStars).fill(true, 0, this.rating)
   }
-
 }

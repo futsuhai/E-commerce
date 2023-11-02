@@ -9,28 +9,28 @@ import { IProduct } from '../../models/product.model';
 })
 export class AdminComponent implements OnInit {
 
-  products: IProduct[] = [];
-  isModalOpen = false;
+  public products: IProduct[] = [];
+  public isModalOpen = false;
 
   constructor(
     private productService: ProductService,
   ) { }
 
-  public async ngOnInit(){
+  public async ngOnInit() {
     this.refreshProductList();
   }
 
-  public async createProduct(product: IProduct): Promise<void>{
+  public async createProduct(product: IProduct): Promise<void> {
     await this.productService.addProduct(product);
     await this.refreshProductList();
   }
 
-  public async deleteProduct(productId: string): Promise<void>{
+  public async deleteProduct(productId: string): Promise<void> {
     await this.productService.deleteProduct(productId);
     await this.refreshProductList();
   }
 
-  public async updateProduct(product: IProduct): Promise<void>{
+  public async updateProduct(product: IProduct): Promise<void> {
     await this.productService.updateProduct(product);
     await this.refreshProductList();
   }
@@ -39,11 +39,11 @@ export class AdminComponent implements OnInit {
     this.products = await this.productService.getProducts();
   }
 
-  openModal() {
+  public openModal(): void {
     this.isModalOpen = true;
   }
 
-  closeModal() {
+  public closeModal(): void {
     this.isModalOpen = false;
   }
 

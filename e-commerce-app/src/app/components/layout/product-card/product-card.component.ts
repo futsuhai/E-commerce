@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { IProduct } from '../../models/product.model';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-product-card',
@@ -8,5 +7,6 @@ import { Subject } from 'rxjs';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent {
+
   @Input() product!: IProduct;
 }

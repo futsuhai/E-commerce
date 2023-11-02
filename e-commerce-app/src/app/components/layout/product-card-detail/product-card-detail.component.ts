@@ -7,6 +7,7 @@ import { IProduct } from '../../models/product.model';
   styleUrls: ['./product-card-detail.component.scss']
 })
 export class ProductCardDetailComponent {
+
   @Input() product: IProduct | undefined;
-  bonus: number = 10;
+  public bonusStab: number = 10;
 }
