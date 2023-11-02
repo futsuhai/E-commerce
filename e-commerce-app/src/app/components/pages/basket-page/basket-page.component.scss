@@ -37,7 +37,6 @@ main {
                         align-items: center;
                         gap: 8px;
                         padding: 8px;
-                        font-family: 'Rubik';
                         font-size: 12px;
 
                         &.delete {
@@ -62,7 +61,6 @@ main {
                         display: flex;
                         align-items: flex-end;
                         gap: 10px;
-                        font-family: 'Rubik';
                         color: $main-surface;
 
                         .form-check-input {

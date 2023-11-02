@@ -1,11 +1,10 @@
 <div class="product-detail">
     <div class="images-wrapper">
         <div class="left-column">
-            <img [src]="product?.image" alt="" class="left-item">
-            <img [src]="product?.image" alt="" class="left-item">
-            <img [src]="product?.image" alt="" class="left-item">
-            <img [src]="product?.image" alt="" class="left-item">
-            <img [src]="product?.image" alt="" class="left-item">
+            <img 
+                *ngFor="let image of [1, 2, 3, 4, 5]" 
+                [src]="product?.image" alt="product-image" class="left-item"
+            >
         </div>
         <img [src]="product?.image" alt="" class="right-column">
     </div>
@@ -20,7 +19,7 @@
                     <p>Обычная цена</p>
                     <p class="withIcon">
                         С картой Северяночки
-                        <img src="assets/product-page/prod-page-info.svg" alt="">
+                        <img src="assets/product-page/prod-page-info.svg" alt="info-icon">
                     </p>
                 </div>
             </div>

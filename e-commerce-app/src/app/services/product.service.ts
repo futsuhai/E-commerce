@@ -24,7 +24,6 @@ export class ProductService extends BaseService {
     }
 
     public addProduct(product: IProduct): Promise<IProduct> {
-        console.log(product);
         return this.post(`${this.config.productsApi}/AddProduct`, product);
     }
 

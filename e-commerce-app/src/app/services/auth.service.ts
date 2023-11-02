@@ -30,7 +30,7 @@ export class AuthService extends BaseService {
     return this.post(`${this.config.authApi}/Register`, user);
   }
 
-  public logout() {
+  public logout(): void {
     localStorage.removeItem(this.tokenKey);
     localStorage.removeItem(this.loginKey);
   }

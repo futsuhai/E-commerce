@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class RatingComponent {
 
   private _rating: number = 0;
-  private stars: boolean[] = [];
+  public stars: boolean[] = [];
   private maxStars: number = 5;
   @Input() readonly: boolean = true;
   @Input() get rating(): number {
