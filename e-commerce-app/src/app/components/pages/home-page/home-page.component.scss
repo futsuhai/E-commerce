@@ -107,7 +107,7 @@
     }
 }
 
-@include tablet-netbook {
+@include between_md-xl {
     .main {
         .top-banner {
             .image-wrapper {
@@ -119,7 +119,7 @@
     }
 }
 
-@include mobile- {
+@include md {
     .main {
         .top-banner {
             .image-wrapper {

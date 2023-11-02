@@ -42,7 +42,7 @@
     }
 }
 
-@include mobile- {
+@include md {
     .product-form {
         display: flex;
         flex-direction: column-reverse;

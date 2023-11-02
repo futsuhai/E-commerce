@@ -71,7 +71,7 @@
     }
 }
 
-@include netbook- {
+@include xl {
     .footer {
         .layout-container {
             .menu-wrapper {
@@ -95,7 +95,7 @@
     }
 }
 
-@include tablet-{
+@include lg {
     .footer {
         .layout-container {
             display: flex;
@@ -114,7 +114,7 @@
     }
 }
 
-@include mobile{
+@include sm {
     .footer {
         .layout-container {
             display: flex;

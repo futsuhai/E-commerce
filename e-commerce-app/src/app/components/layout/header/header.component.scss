@@ -100,7 +100,7 @@
     }
 }
 
-@include tablet--netbook {
+@include between_lg-xl {
     .header-wrapper {
         .header {
             gap: 12px;
@@ -126,7 +126,7 @@
     }
 }
 
-@include tablet- {
+@include lg {
     .header-wrapper {
         .header-mobile{
             max-width: 1208px;
