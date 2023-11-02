@@ -3,7 +3,7 @@ export class User {
     private id: string;
     private login: string;
     private password: string;
-    private email: string;
+    private email?: string;
 
     constructor(data: IUser) {
         this.id = data.id;
@@ -16,6 +16,6 @@ export class User {
 export interface IUser {
     id: string,
     login: string,
-    email: string,
+    email?: string,
     password: string
 }

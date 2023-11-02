@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from '../pages/home-page/home-page/home-page.component';
-import { ProductPageComponent } from '../pages/product-page/product-page/product-page.component';
-import { AuthPageComponent } from '../pages/auth-page/auth-page/auth-page.component';
+import { HomePageComponent } from '../pages/home-page/home-page.component';
+import { ProductPageComponent } from '../pages/product-page/product-page.component';
+import { AuthPageComponent } from '../pages/auth-page/auth-page.component';
 import { BasketPageComponent } from '../pages/basket-page/basket-page.component';
 import { AdminComponent } from '../pages/admin/admin.component';
 import { TestingPageComponent } from '../pages/testing-page/testing-page.component';

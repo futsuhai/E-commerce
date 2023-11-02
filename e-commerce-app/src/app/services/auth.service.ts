@@ -22,16 +22,8 @@ export class AuthService extends BaseService {
     return "currentToken";
   }
 
-  public login(user: User): Promise<number> {
-    return this.post(`${this.config.authApi}/Auth`, user).then(response => {
-      console.warn(response);
-      if (response.status === 200) {
-        const data = response.body.Value;
-        localStorage.setItem(this.tokenKey, data.acces_token);
-        localStorage.setItem(this.loginKey, data.login);
-      }
-      return response.status;
-    });
+  public login(user: User): Promise<void> {
+    return this.post(`${this.config.authApi}/Auth`, user);
   }
 
   public register(user: User): Promise<void> {

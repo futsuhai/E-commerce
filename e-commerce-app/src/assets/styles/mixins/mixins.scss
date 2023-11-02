@@ -1,13 +1,3 @@
-@mixin layout-page-style{
-    width: 1208px;
-    margin: 0 auto;
-}
-
-@mixin layout{
-    width: 100%;
-    margin: 0 auto;
-}
-
 @mixin mobile {
     @media screen and (max-width: 576px) {
         @content
