@@ -24,12 +24,13 @@ import { ProductCardAdminComponent } from './components/layout/product-card-admi
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
-import { FormUpdateComponent } from './components/layout/form-update/form-update.component';
-import { FormCreateComponent } from './components/layout/form-create/form-create.component';
+import { FormUpdateComponent } from './components/layout/forms/form-update/form-update.component';
 import { TestingPageComponent } from './components/pages/testing-page/testing-page.component';
 import { HeaderBaseComponent } from './components/layout/header/header-base/header-base.component';
 import { HeaderDesktopComponent } from './components/layout/header/header-desktop/header-desktop.component';
 import { HeaderMobileComponent } from './components/layout/header/header-mobile/header-mobile.component';
+import { FormBaseComponent } from './components/layout/forms/form-base/form-base.component';
+import { FormCreatedComponent } from './components/layout/forms/form-create/form-create.component';
 
 
 @NgModule({
@@ -50,11 +51,12 @@ import { HeaderMobileComponent } from './components/layout/header/header-mobile/
     AdminComponent,
     ProductCardAdminComponent,
     FormUpdateComponent,
-    FormCreateComponent,
     TestingPageComponent,
     HeaderBaseComponent,
     HeaderDesktopComponent,
-    HeaderMobileComponent
+    HeaderMobileComponent,
+    FormBaseComponent,
+    FormCreatedComponent
   ],
   imports: [
     BrowserModule,

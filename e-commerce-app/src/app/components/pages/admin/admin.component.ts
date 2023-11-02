@@ -23,6 +23,7 @@ export class AdminComponent implements OnInit {
   public async createProduct(product: IProduct): Promise<void> {
     await this.productService.addProduct(product);
     await this.refreshProductList();
+    this.closeModal();
   }
 
   public async deleteProduct(productId: string): Promise<void> {
@@ -31,6 +32,7 @@ export class AdminComponent implements OnInit {
   }
 
   public async updateProduct(product: IProduct): Promise<void> {
+    console.log(product);
     await this.productService.updateProduct(product);
     await this.refreshProductList();
   }
