@@ -1,0 +1,99 @@
+@import "src/assets/styles/variables.scss";
+@import "src/assets/styles/mixins/mixins.scss";
+
+.header-wrapper {
+    width: 100vw;
+    margin-bottom: 4px;
+    padding: 0px 16px;
+    box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.10);
+
+    .header {
+        max-width: 1208px;
+        height: 72px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        .logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .logo-burger {
+                display: none;
+            }
+        }
+
+        .header-desktop {
+            display: block;
+            flex-grow: 2;
+        }
+
+        .header-mobile {
+            display: none;
+        }
+    }
+}
+
+@include xl {
+    .header-wrapper {
+        .header {
+            gap: 20px;
+
+            .logo {
+                .logo-burger {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@include lg {
+    .header-wrapper {
+        .header {
+            display: block;
+
+            .logo {
+                height: 72px;
+
+                .logo-burger {
+                    display: block;
+                }
+            }
+
+            .header-desktop {
+                display: none;
+            }
+
+            .header-mobile {
+                display: none;
+            }
+        }
+
+        .header-mobile {
+            display: block;
+
+            .logo {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 72px;
+
+                .logo-burger {
+                    display: block;
+                }
+            }
+
+            .header-desktop {
+                display: none;
+            }
+
+            .header-mobile {
+                display: block;
+            }
+        }
+    }
+}

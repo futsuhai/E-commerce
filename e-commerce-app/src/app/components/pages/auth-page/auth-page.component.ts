@@ -10,9 +10,10 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./auth-page.component.scss']
 })
 export class AuthPageComponent {
-  switchForm: boolean = true;
-  regForm!: FormGroup;
-  loginForm!: FormGroup;
+
+  public switchForm: boolean = true;
+  public regForm!: FormGroup;
+  public loginForm!: FormGroup;
 
   constructor(
     private readonly authService: AuthService,
@@ -68,11 +69,7 @@ export class AuthPageComponent {
 
   public hidePassword(id: string): void {
     const password = document.getElementById(id) as HTMLInputElement;
-    if (password.type === "password") {
-      password.type = "text";
-    } else {
-      password.type = "password";
-    }
+    password.type = password.type === "password" ? "text" : "password";
   }
 }
 

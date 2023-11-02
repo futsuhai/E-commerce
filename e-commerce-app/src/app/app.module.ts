@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
 import { AuthPageComponent } from './components/pages/auth-page/auth-page.component';
@@ -28,12 +27,14 @@ import { CommonModule } from '@angular/common';
 import { FormUpdateComponent } from './components/layout/form-update/form-update.component';
 import { FormCreateComponent } from './components/layout/form-create/form-create.component';
 import { TestingPageComponent } from './components/pages/testing-page/testing-page.component';
+import { HeaderBaseComponent } from './components/layout/header/header-base/header-base.component';
+import { HeaderDesktopComponent } from './components/layout/header/header-desktop/header-desktop.component';
+import { HeaderMobileComponent } from './components/layout/header/header-mobile/header-mobile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
     HomePageComponent,
     AuthPageComponent,
@@ -51,6 +52,9 @@ import { TestingPageComponent } from './components/pages/testing-page/testing-pa
     FormUpdateComponent,
     FormCreateComponent,
     TestingPageComponent,
+    HeaderBaseComponent,
+    HeaderDesktopComponent,
+    HeaderMobileComponent
   ],
   imports: [
     BrowserModule,
