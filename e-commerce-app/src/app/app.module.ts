@@ -20,7 +20,6 @@ import { BasketPageComponent } from './components/pages/basket-page/basket-page.
 import { ProductCardBasketComponent } from './components/layout/product-card-basket/product-card-basket.component';
 import { GramsPipe } from './components/pipes/grams.pipe';
 import { AdminComponent } from './components/pages/admin/admin.component';
-import { ProductCardAdminComponent } from './components/layout/product-card-admin/product-card-admin.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
@@ -49,7 +48,6 @@ import { FormCreatedComponent } from './components/layout/forms/form-create/form
     ProductCardBasketComponent,
     GramsPipe,
     AdminComponent,
-    ProductCardAdminComponent,
     FormUpdateComponent,
     TestingPageComponent,
     HeaderBaseComponent,

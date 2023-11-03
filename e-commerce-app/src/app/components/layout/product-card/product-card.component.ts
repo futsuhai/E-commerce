@@ -9,4 +9,5 @@ import { IProduct } from '../../models/product.model';
 export class ProductCardComponent {
 
   @Input() product!: IProduct;
+
 }

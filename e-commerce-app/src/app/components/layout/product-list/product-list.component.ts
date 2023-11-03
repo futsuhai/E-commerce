@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class ProductListComponent implements OnInit {
 
+  public isModalOpen = false;
   public isAdminPage: boolean = false;
   @Input() products!: IProduct[];
   @Output() public updatedProduct = new EventEmitter<IProduct>();
@@ -32,6 +33,14 @@ export class ProductListComponent implements OnInit {
 
   public updateProduct(product: IProduct): void {
     this.updatedProduct.emit(product);
+  }
+
+  public openModal(): void {
+    this.isModalOpen = true;
+  }
+
+  public closeModal(): void {
+    this.isModalOpen = false;
   }
 }
 

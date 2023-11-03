@@ -43,18 +43,5 @@
                 color: $main-surface;
             }
         }
-
-        .btn {
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid $green-color;
-            color: $green-color;
-
-            &:hover {
-                background-color: $orange-color;
-                color: $white-color;
-                border: $orange-color;
-            }
-        }
     }
 }

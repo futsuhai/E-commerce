@@ -1,14 +1,31 @@
 <div class="content-main">
     <ng-container *ngIf="!isAdminPage">
-        <app-product-card *ngFor="let product of products" 
-            [product]="product"
-        ></app-product-card>
+        <app-product-card *ngFor="let product of products" [product]="product">
+            <button type="button" class="btn">
+                В корзину
+            </button>
+        </app-product-card>
     </ng-container>
     <ng-container *ngIf="isAdminPage">
-        <app-product-card-admin *ngFor="let product of products" 
-            [product]="product" 
-            (deletedProduct)="deleteProduct($event)"
-            (updatedProduct)="updateProduct($event)"
-        ></app-product-card-admin>
+        <app-product-card *ngFor="let product of products" 
+            [product]="product">
+            <div class="controls">
+                <button type="button" class="btn" (click)="openModal()">
+                    Изменить
+                </button>
+                <button type="button" class="btn" (click)="deleteProduct(product.id)">
+                    Удалить
+                </button>
+            </div>
+            <div class="modal-background" [class.open]="isModalOpen">
+                <div class="modal-content">
+                    <app-form-update 
+                        [product]="product"
+                        (updatedProduct)="updateProduct($event)"
+                        (close)="closeModal()"
+                    ></app-form-update>
+                </div>
+            </div>
+        </app-product-card>
     </ng-container>
 </div>

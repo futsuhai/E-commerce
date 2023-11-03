@@ -32,9 +32,9 @@ export class AdminComponent implements OnInit {
   }
 
   public async updateProduct(product: IProduct): Promise<void> {
-    console.log(product);
     await this.productService.updateProduct(product);
     await this.refreshProductList();
+    this.closeModal();
   }
 
   public async refreshProductList() {
@@ -48,5 +48,4 @@ export class AdminComponent implements OnInit {
   public closeModal(): void {
     this.isModalOpen = false;
   }
-
 }

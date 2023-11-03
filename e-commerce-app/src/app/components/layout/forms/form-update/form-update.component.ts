@@ -11,6 +11,7 @@ import { FormBaseComponent } from '../form-base/form-base.component';
 export class FormUpdateComponent extends FormBaseComponent {
 
   @Output() public updatedProduct = new EventEmitter<IProduct>();
+  @Output() public close = new EventEmitter<void>();
 
   constructor(formBuilder: FormBuilder) {
     super(formBuilder);
@@ -22,5 +23,6 @@ export class FormUpdateComponent extends FormBaseComponent {
       return;
     }
     this.updatedProduct.emit(product);
+    this.close.emit();
   }
 }
