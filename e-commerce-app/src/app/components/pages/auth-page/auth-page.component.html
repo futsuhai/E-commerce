@@ -13,7 +13,7 @@
                 </li>
             </ul>
             <ng-container *ngIf="switchForm; else RegisterTemplate">
-                <form class="base-form login-form" [formGroup]="loginForm" (ngSubmit)="submitLoginForm">
+                <form class="base-form login-form" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
                     <div class="form-group">
                         <label class="form-label" for="login">Логин:</label>
                         <input class="form-control" type="text" id="login" formControlName="login">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { IProduct } from '../../models/product.model';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-admin',
@@ -10,6 +11,20 @@ import { IProduct } from '../../models/product.model';
 export class AdminComponent implements OnInit {
 
   public products: IProduct[] = [];
+  public product: IProduct = {
+    id: Guid.create().toString(),
+    cardPrice: 0,
+    commonPrice: 0,
+    title: '',
+    rating: 0,
+    image: '',
+    country: '',
+    weight: 0,
+    article: 0,
+    reviews: 0,
+    brand: ''
+  };
+
   public isModalOpen = false;
 
   constructor(

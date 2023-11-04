@@ -28,19 +28,8 @@ export class FormBaseComponent implements OnInit {
         commonPrice: [this.product.commonPrice, Validators.min(0)],
         cardPrice: [this.product.cardPrice, Validators.min(0)],
       });
-      this.id = this.product.id;
-    } else {
-      this.productForm = this.formBuilder.group({
-        title: [null, Validators.required],
-        country: [null, Validators.required],
-        brand: [null, Validators.required],
-        article: [null, Validators.min(0)],
-        weight: [null, Validators.min(0)],
-        commonPrice: [null, Validators.min(0)],
-        cardPrice: [null, Validators.min(0)],
-      });
-      this.id = Guid.create().toString();
-    }
+    } 
+    return;
   }
 
   public async onSubmit(): Promise<void> {
@@ -53,7 +42,7 @@ export class FormBaseComponent implements OnInit {
     }
     const formValue = this.productForm.value;
     return {
-      id: this.id,
+      id: this.product.id,
       cardPrice: formValue.cardPrice,
       commonPrice: formValue.commonPrice,
       title: formValue.title,

@@ -16,6 +16,7 @@
 <div class="modal-background" [class.open]="isModalOpen">
     <div class="modal-content">
         <app-form-created 
+            [product]="product"
             (onClose)="closeModal()"
             (createdProduct)="createProduct($event)"
         ></app-form-created>

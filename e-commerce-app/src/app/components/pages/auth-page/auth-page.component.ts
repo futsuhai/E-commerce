@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Guid } from 'guid-typescript';
 import { User } from 'src/app/components/models/user.model';
+import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { AuthState } from '../../models/auth-state.module';
+import { AppState } from '../../models/app-state.module';
 
 @Component({
   selector: 'app-auth-page',
@@ -17,15 +20,18 @@ export class AuthPageComponent {
 
   constructor(
     private readonly authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private readonly appState: AppState,
+    private readonly accountService: AccountService
   ) {
     this.loginForm = this.formBuilder.group({
-      login: ['', Validators.required, Validators.minLength(4), Validators.maxLength(12)],
+      login: ['', Validators.required],
       password: ['', Validators.required]
     });
 
+
     this.regForm = this.formBuilder.group({
-      login: ['', Validators.required, Validators.minLength(4), Validators.maxLength(12)],
+      login: ['', Validators.required],
       email: ['', Validators.email],
       password: ['', Validators.required],
       passConfirm: ['', Validators.required]
@@ -42,6 +48,7 @@ export class AuthPageComponent {
       });
       await this.authService.login(loginedUser);
       this.loginForm.reset();
+      console.log(this.appState.getCurrentUser());
     }
   }
 

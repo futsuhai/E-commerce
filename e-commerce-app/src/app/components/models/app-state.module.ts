@@ -9,6 +9,7 @@ import { User } from "./user.model";
 })
 export class AppState {
     public readonly authState: AuthState;
+    protected currentUser: User | null = null;
 
     constructor(
         private readonly authService: AuthService,
@@ -17,12 +18,14 @@ export class AppState {
         this.authState = new AuthState();
     }
 
-    public async getAccount(): Promise<User | null> {
-        const login = localStorage.getItem(this.authService.loginKey);
-        if (login) {
-            const account = await this.accountService.getAccount(login);
-            return account;
+    public getCurrentUser(): User | null {
+        const user = localStorage.getItem(this.authService.accountKey);
+        // add token check
+        if (user) {
+            this.currentUser = JSON.parse(user);
+            return this.currentUser;
         }
         return null;
     }
+
 }

@@ -18,6 +18,6 @@ export class AccountService extends BaseService {
     }
 
     public getAccount(login: string): Promise<User> {
-        return this.get(`${this.config.accountsApi}/GetAccount/${login}`).then(data => data.body)
+        return this.get(`${this.config.accountsApi}/GetAccount/${login}`);
     }
 }
