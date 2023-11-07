@@ -4,8 +4,7 @@ import { Guid } from 'guid-typescript';
 import { User } from 'src/app/components/models/user.model';
 import { AccountService } from 'src/app/services/account.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { AuthState } from '../../models/auth-state.module';
-import { AppState } from '../../models/app-state.module';
+import { AppState } from '../../models/app.state.module';
 
 @Component({
   selector: 'app-auth-page',
@@ -41,14 +40,24 @@ export class AuthPageComponent {
   public async submitLoginForm(): Promise<void> {
     if (this.loginForm.valid) {
       const formValue = this.loginForm.value;
-      const loginedUser: User = new User({
-        id: Guid.create().toString(),
+      const newUser: User = new User({
         login: formValue.login,
-        password: formValue.password,
+        password: formValue.password
       });
-      await this.authService.login(loginedUser);
+
+      await this.authService.login(newUser);
       this.loginForm.reset();
-      console.log(this.appState.getCurrentUser());
+      var user = this.appState.getCurrentUser();
+      var tokens = this.appState.getCurrentTokens();
+      console.log(tokens);
+      console.log(user);
+      if(user != null && tokens != null){
+        await this.authService.refreshTokens(tokens.refreshToken);
+      }
+      var user1 = this.appState.getCurrentUser();
+      var tokens1 = this.appState.getCurrentTokens();
+      console.log(tokens1);
+      console.log(user1);
     }
   }
 

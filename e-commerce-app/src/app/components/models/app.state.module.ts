@@ -3,6 +3,7 @@ import { AuthState } from "./auth-state.module";
 import { AuthService } from "src/app/services/auth.service";
 import { AccountService } from "src/app/services/account.service";
 import { User } from "./user.model";
+import { ITokens } from "./tokens.model";
 
 @Injectable({
     providedIn: 'root'
@@ -10,6 +11,7 @@ import { User } from "./user.model";
 export class AppState {
     public readonly authState: AuthState;
     protected currentUser: User | null = null;
+    protected currentTokens: ITokens | null = null;
 
     constructor(
         private readonly authService: AuthService,
@@ -28,4 +30,12 @@ export class AppState {
         return null;
     }
 
+    public getCurrentTokens(): ITokens | null {
+        const tokens = localStorage.getItem(this.authService.tokenKey);
+        if (tokens) {
+            this.currentTokens = JSON.parse(tokens);
+            return this.currentTokens;
+        }
+        return null;
+    }
 }
